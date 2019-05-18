@@ -13,12 +13,19 @@ Currently have three files to track:
 3. Install [vim-plug](https://github.com/junegunn/vim-plug)
 4. Install fzf binary
 
-On chromebook (chromebrew), need to force installation of old version of deoplete to work with older supplied version of neovim.
+### chromebook
+1. install pynvim
+``` pip3 install --user pynvim ```
+2. manually install old version of deoplete [link](https://github.com/Shougo/deoplete.nvim/releases/tag/4.1) (unzip to ~/.config/nvim/)
+3. proceed as usual
 
 ## TODO
-streamline python 3 on windows (currently is not default which is a pain)
+streamline python 3 on windows (in conda just install python 3 as the default)
+
 remap <c-k> in insert mode (for inserting special characters)
+
 add snippets for commonly used characters? (sigma, epsilon)
+
 add instructions for setting up platformio in vim
   find a simple way to create a new project and set it up with a makefile
   automake shortcuts? neomake?
