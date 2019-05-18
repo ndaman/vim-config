@@ -19,3 +19,6 @@ On chromebook (chromebrew), need to force installation of old version of deoplet
 streamline python 3 on windows (currently is not default which is a pain)
 remap <c-k> in insert mode (for inserting special characters)
 add snippets for commonly used characters? (sigma, epsilon)
+add instructions for setting up platformio in vim
+  find a simple way to create a new project and set it up with a makefile
+  automake shortcuts? neomake?
