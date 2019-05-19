@@ -19,6 +19,14 @@ Currently have three files to track:
 2. manually install old version of deoplete [link](https://github.com/Shougo/deoplete.nvim/releases/tag/4.1) (unzip to ~/.config/nvim/)
 3. proceed as usual
 
+### platformio
+1. install python 2
+``` 
+conda activate py27
+pip install platformio
+```
+2. copy makefile
+
 ## TODO
 streamline python 3 on windows (in conda just install python 3 as the default)
 
