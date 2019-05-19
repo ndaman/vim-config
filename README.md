@@ -10,8 +10,12 @@ Currently have three files to track:
 ## installation
 1. Install python 3 (if needed)
 2. Install neovim (on windows use chocolatey, which installs nvim-qt by default)
-3. Install [vim-plug](https://github.com/junegunn/vim-plug)
-4. Install fzf binary
+3. Install pynvim
+```
+pip install --user pynvim
+```
+4. Install [vim-plug](https://github.com/junegunn/vim-plug)
+4. Install fzf binary (```choco install fzf```)
 
 ### chromebook
 1. install pynvim
@@ -28,7 +32,7 @@ pip install platformio
 2. copy makefile
 
 ## TODO
-streamline python 3 on windows (in conda just install python 3 as the default)
+On windows, it works best if Python 3 is the default, python 2.7 installed as a separate environment
 
 remap <c-k> in insert mode (for inserting special characters)
 
