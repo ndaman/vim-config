@@ -25,18 +25,22 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'tpope/vim-fugitive'
+" not really using it right now
+" Plug 'tpope/vim-fugitive'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'rbong/vim-crystalline'
 
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'dracula/vim'
+" Themes
+Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 
 Plug 'tpope/vim-surround'
 
-Plug 'mattn/emmet-vim'
+" learn to use before loading
+" Plug 'mattn/emmet-vim'
 
 Plug 'ndaman/vim-markdown-toc'
 
@@ -48,8 +52,9 @@ call plug#end()
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
+let ayucolor="dark"
 syntax on
-colorscheme gruvbox
+colorscheme ayu
 
 " map keyboard for changing windows
 nnoremap <C-h> <C-w>h
@@ -150,3 +155,24 @@ autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+" set colors in crystalline
+function! StatusLine(current)
+  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
+        \ . ' %f%h%w%m%r '
+        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
+        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
+        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
+endfunction
+
+function! TabLine()
+  let l:vimlabel = has("nvim") ?  " NVIM " : " VIM "
+  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+endfunction
+
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_tabline_fn = 'TabLine'
+let g:crystalline_theme = 'default'
+
+set showtabline=2
+set laststatus=2
