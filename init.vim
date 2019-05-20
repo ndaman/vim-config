@@ -12,6 +12,12 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 
+" Improved motion in Vim
+Plug 'easymotion/vim-easymotion'
+
+" auto-close plugin
+Plug 'rstacruz/vim-closer'
+
 Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -127,3 +133,20 @@ nnoremap <S-Space> 
 
 " vim-surround mapping
 vmap s S
+
+" automatically set correct directory
+function! OnTabEnter(path)
+	if isdirectory(a:path)
+		let dirname = a:path
+	else
+		let dirname = fnamemodify(a:path,":h")
+	endif
+	execute "tcd ". dirname
+endfunction()
+
+autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
+
+" set tabs to display smaller
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
