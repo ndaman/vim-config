@@ -54,7 +54,9 @@ Plug 'ndaman/vim-markdown-toc'
 " shortcuts for git add, commit, push, etc.
 Plug 'lambdalisue/gina.vim'
 
-" platformio integration
+" get targets from makefile, good integration with platformio
+" need to learn this better
+Plug 'neomake/neomake'
 
 call plug#end()
 
@@ -182,3 +184,4 @@ set laststatus=2
 
 " remap digraphs
 inoremap <C-y> <C-k>
+

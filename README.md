@@ -8,36 +8,37 @@ Currently have three files to track:
 - snippets/markdown.snip (custom snippets for markdown)
 
 ## installation
-1. Install python 3 (if needed)
-2. Install neovim (on windows use chocolatey, which installs nvim-qt by default)
+1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
+2. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
 3. Install pynvim
 ```
 pip install --user pynvim
 ```
 4. Install [vim-plug](https://github.com/junegunn/vim-plug)
-4. Install fzf binary (```choco install fzf```)
+5. Install fzf binary (`choco install fzf`)
 
 ### chromebook
 1. install pynvim
-``` pip3 install --user pynvim ```
+``` 
+pip3 install --user pynvim 
+```
 2. manually install old version of deoplete [link](https://github.com/Shougo/deoplete.nvim/releases/tag/4.1) (unzip to ~/.config/nvim/)
 3. proceed as usual
 
 ### platformio
 1. install python 2
 ``` 
+conda create -n py27 python=2.7
 conda activate py27
 pip install platformio
 ```
-2. copy makefile
+2. initialize project with
+```
+mkdir MyProject
+pio init --ide vim --board <ID>
+cp vim-config/Makefile MyProject/Makefile
+```
 
 ## TODO
-On windows, it works best if Python 3 is the default, python 2.7 installed as a separate environment
-
-remap <c-k> in insert mode (for inserting special characters)
-
-add snippets for commonly used characters? (sigma, epsilon)
-
-add instructions for setting up platformio in vim
-  find a simple way to create a new project and set it up with a makefile
-  automake shortcuts? neomake?
+want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
+Can this be done in Neomake?
