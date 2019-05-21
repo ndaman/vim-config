@@ -179,3 +179,6 @@ let g:crystalline_theme = 'default'
 
 set showtabline=2
 set laststatus=2
+
+" remap digraphs
+inoremap <C-y> <C-k>
