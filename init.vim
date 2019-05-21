@@ -1,6 +1,6 @@
 let g:python3_host_prog = 'D:/Anaconda/envs/py3/python'
 
-call plug#begin('~/AppData/Local/nvim/plugged')
+:all plug#begin('~/AppData/Local/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 1
@@ -26,7 +26,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 " not really using it right now
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
