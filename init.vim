@@ -1,35 +1,41 @@
 let g:python3_host_prog = 'D:/Anaconda/envs/py3/python'
 
-:all plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/AppData/Local/nvim/plugged')
 
+" autocomplete with snippets
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
+" markdown formatting
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " Improved motion in Vim
 Plug 'easymotion/vim-easymotion'
 
-" auto-close plugin
-Plug 'rstacruz/vim-closer'
+" auto-close parenthesis etc. plugin
+" disabled because it doesn't seem to work in markdown
+" Plug 'rstacruz/vim-closer'
 
+" fancy start page
 Plug 'mhinz/vim-startify'
 
+" fuzzy search, need binary installed separately
+" see my custom function later for autocomplete
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" simple project browser
 Plug 'scrooloose/nerdtree'
 
-" not really using it right now
+" some git functions, crystalline uses it
 Plug 'tpope/vim-fugitive'
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+" airline looks better to me, but cyrstalline is supposed to be lighter/faster
 Plug 'rbong/vim-crystalline'
 
 " Themes
@@ -42,15 +48,17 @@ Plug 'tpope/vim-surround'
 " learn to use before loading
 " Plug 'mattn/emmet-vim'
 
+" Autogenerate table of contents
 Plug 'ndaman/vim-markdown-toc'
 
-Plug 'rhysd/nyaovim-popup-tooltip'
-
+" shortcuts for git add, commit, push, etc.
 Plug 'lambdalisue/gina.vim'
+
+" platformio integration
 
 call plug#end()
 
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" set colorscheme
 set termguicolors
 let ayucolor="dark"
 syntax on
@@ -81,14 +89,6 @@ call deoplete#custom#source('neosnippet', 'rank', 1000)
 
 " let NERDTree take over netrw (default folder navigation)
 let g:NERDTreeHijackNetrw=1
-
-" workaround for nyaovim's weird argv issue
-if exists('g:nyaovim_version')
-" delete first arg
-	execute '1argd'
-" close current buffer
-	execute 'bd'
-endif
 
 " map NERDTree toggle
 map <C-b> :NERDTreeToggle<CR>
@@ -155,6 +155,9 @@ autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+" turn on line numbers
+set number
 
 " set colors in crystalline
 function! StatusLine(current)
