@@ -2,10 +2,11 @@
 
 I wanted to centralize my vim config settings and any other installation instructions so that I can more easily keep things consistent. I will also keep track of things to improve to make the process easier.
 
-Currently have three files to track: 
+Currently have four files to track: 
 - init.vim (vimrc) 
 - ginit.vim (gui settings) 
 - snippets/markdown.snip (custom snippets for markdown)
+- Makefile (build file for platformio projects)
 
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
@@ -35,6 +36,7 @@ pip install platformio
 2. initialize project with
 ```
 mkdir MyProject
+cd MyProject
 pio init --ide vim --board <ID>
 cp vim-config/Makefile MyProject/Makefile
 ```
