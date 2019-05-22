@@ -184,3 +184,6 @@ set laststatus=2
 " remap digraphs
 inoremap <C-y> <C-k>
 
+" replace all span titles
+" :%s/<span>\(.*\)<\/span>/----\r## \1/g
+map <C-t> :%s!<span>\(.*\)</span>!----\r## \1!g<CR>
