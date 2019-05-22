@@ -1,5 +1,3 @@
-let g:python3_host_prog = 'D:/Anaconda/envs/py3/python'
-
 call plug#begin('~/AppData/Local/nvim/plugged')
 
 " autocomplete with snippets

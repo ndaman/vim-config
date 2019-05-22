@@ -17,6 +17,16 @@ pip install --user pynvim
 4. Install [vim-plug](https://github.com/junegunn/vim-plug)
 5. Install fzf binary (`choco install fzf`)
 6. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
+7. Edit init.vim so it reads
+```
+let g:python3_host_prog = '/path/to/python'
+source /path/to/vim-config/init.vim
+```
+8. Edit ginit.vim
+```
+source /path/to/vim-config/ginit.vim
+```
+9. make a symlink from vim-config/snippets to nvim/snippets
 
 ### chromebook
 1. install pynvim
