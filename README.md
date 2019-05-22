@@ -16,6 +16,7 @@ pip install --user pynvim
 ```
 4. Install [vim-plug](https://github.com/junegunn/vim-plug)
 5. Install fzf binary (`choco install fzf`)
+6. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
 
 ### chromebook
 1. install pynvim
