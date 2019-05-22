@@ -106,7 +106,8 @@ let g:vmt_max_level = 1
 " function to convert fzf into relative path
 function! MyRelPath(...)
 	" full path to fzf file match
-	let target = getcwd() . '\' . substitute(a:1, '/', '\', '')
+	let target = getcwd() . '\' . substitute(a:1, '/', '\', 'g')
+
 	" current directory (not cwd)
 	let base = expand('%:p:h')
 
