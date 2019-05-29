@@ -55,3 +55,5 @@ want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up
 Can this be done in Neomake?
   
 Look into ripgrep searching [link](https://www.mattlayman.com/blog/2019/supercharging-vim-blazing-fast-search/)
+
+Possibly some useful keyboard shortcuts [link](https://aonemd.github.io/blog/handy-keymaps-in-vim)
