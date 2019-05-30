@@ -54,6 +54,8 @@ cp vim-config/Makefile MyProject/Makefile
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
 Can this be done in Neomake?
   
+Split LS-DYNA plugin into separate files and modify them. One for Deoplete autocompletion and one for syntax highlighting.
+  
 Look into ripgrep searching [link](https://www.mattlayman.com/blog/2019/supercharging-vim-blazing-fast-search/)
 
 Possibly some useful keyboard shortcuts [link](https://aonemd.github.io/blog/handy-keymaps-in-vim)
