@@ -51,6 +51,8 @@ cp vim-config/Makefile MyProject/Makefile
 ```
 
 ## TODO
+vim-ipython-cell [link](https://github.com/hanschen/vim-ipython-cell)
+
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
 Can this be done in Neomake?
   
