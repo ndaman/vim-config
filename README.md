@@ -29,6 +29,7 @@ source /path/to/vim-config/ginit.vim
 9. make a symlink from vim-config/snippets to nvim/snippets
 
 ### chromebook
+*I don't think these steps are needed for coc.nvim now that I have switched*
 1. install pynvim
 ``` 
 pip3 install --user pynvim 
@@ -49,6 +50,7 @@ mkdir MyProject
 pio init --ide vim --board <ID>
 cp vim-config/Makefile MyProject/Makefile
 ```
+3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
 
 ## TODO
 vim-ipython-cell [link](https://github.com/hanschen/vim-ipython-cell)
