@@ -29,6 +29,7 @@ source /path/to/vim-config/ginit.vim
 9. make a symlink from vim-config/snippets to nvim/snippets
 
 ### chromebook
+*I don't think these steps are needed for coc.nvim now that I have switched*
 1. install pynvim
 ``` 
 pip3 install --user pynvim 
@@ -46,10 +47,20 @@ pip install platformio
 2. initialize project with
 ```
 mkdir MyProject
-pio init --ide vim --board <ID>
 cp vim-config/Makefile MyProject/Makefile
 ```
+Edit the Makefile init entry so that it contains a --bard <ID> on the pio init line, then init with
+```
+make init
+```
+3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers). 
+The ```make init``` command should generate the correct ```compile_flags.txt``` file for clangd to use and find the appropriate libraries/includes.
 
 ## TODO
+vim-ipython-cell [link](https://github.com/hanschen/vim-ipython-cell)
+
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
 Can this be done in Neomake?
+  
+Split LS-DYNA plugin into separate files and modify them. One for Deoplete autocompletion and one for syntax highlighting.
+
