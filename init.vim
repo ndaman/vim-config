@@ -1,10 +1,15 @@
 call plug#begin('~/AppData/Local/nvim/plugged')
 
-" autocomplete with snippets
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
-let g:deoplete#enable_at_startup = 1
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Switch to coc.nvim completion
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" CocInstall coc-omni
+" CocInstall coc-snippets
+" CocInstall coc-vimtex
+" CocInstall coc-dictionary
+" CocInstall coc-tsserver coc-json
+
+" common snippets
+Plug 'honza/vim-snippets'
 
 " markdown formatting
 Plug 'godlygeek/tabular'
@@ -14,8 +19,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 
 " auto-close parenthesis etc. plugin
-" disabled because it doesn't seem to work in markdown
-" Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
 
 " fancy start page
 Plug 'mhinz/vim-startify'
@@ -41,7 +45,10 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 
-Plug 'tpope/vim-surround'
+" commented out bc I'm not using it
+" Plug 'tpope/vim-surround'
+" vim-surround mapping
+"vmap s S
 
 " learn to use before loading
 " Plug 'mattn/emmet-vim'
@@ -55,8 +62,28 @@ Plug 'lambdalisue/gina.vim'
 " get targets from makefile, good integration with platformio
 " need to learn this better
 Plug 'neomake/neomake'
+" Plugin to fix some directory issues
+" Plug 'barafael/neomake-platformio' "doesn't work
+
+" lsdyna syntax and completion
+Plug 'gradzikb/vim-lsdyna'
+
+" ripgrep searching
+Plug 'jremmen/vim-ripgrep'
+let g:rg_command = 'rg --vimgrep -S'
+
+" quickfix reflector for editing the quickfix
+Plug 'stefandtw/quickfix-reflector.vim'
+
+" latex integration
+Plug 'lervag/vimtex'
+" remotely control neovim, needed for some vimtex features
+Plug 'mhinz/neovim-remote'
+let g:vimtex_compiler_progname = 'nvr'
 
 call plug#end()
+
+filetype plugin on
 
 " set colorscheme
 set termguicolors
@@ -64,28 +91,44 @@ let ayucolor="dark"
 syntax on
 colorscheme ayu
 
+"coc.nvim settings
+" if hidden is not set, TextEdit might fail
+set hidden
+" some servers have issues with backup files
+set nobackup
+set nowritebackup
+" better display for messages
+set cmdheight=2
+" smaller update time for CursorHold
+set updatetime=300
+" don't give ins-completion messages
+set shortmess+=c
+" show sign columns
+set signcolumn=yes
+
+" use tabe to select autocomplete
+function! s:check_back_space() abort
+	let col=col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" navigate snippet placeholders with Tab
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
+
+" use enter to accept expandion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+
 " map keyboard for changing windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" map keys for deoplete
-imap <C-k>	<Plug>(neosnippet_expand_or_jump)
-smap <C-k>	<Plug>(neosnippet_expand_or_jump)
-xmap <C-k>	<Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <expr><TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ neosnippet#expandable_or_jumpable() ?
-	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" set higher priority for filename completion
-call deoplete#custom#source('file', 'rank', 1000)
-call deoplete#custom#source('neosnippet', 'rank', 1000)
 
 " let NERDTree take over netrw (default folder navigation)
 let g:NERDTreeHijackNetrw=1
@@ -94,7 +137,7 @@ let g:NERDTreeHijackNetrw=1
 map <C-b> :NERDTreeToggle<CR>
 
 " custom snippets file
-let g:neosnippet#snippets_directory='~/AppData/Local/nvim/snippets'
+" let g:neosnippet#snippets_directory='~/AppData/Local/nvim/snippets'
 
 " customize markdown toc
 nnoremap <C-g> :GenTocGFM<CR>
@@ -125,6 +168,10 @@ function! MyRelPath(...)
 	execute ':normal! a' . prefix . substitute(target, regmatch, '', '')
 endfunction
 
+" More fzf mapping
+nnoremap <C-p> :Files<cr>
+nnoremap <C-o> :Buffer<cr>
+
 " map relative path completion to <c-f> in edit mode
 inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files *.jpg *.jpeg *.png *.pdf *.svg *.html *.PNG', 'sink': function('MyRelPath')}) <CR> 
 
@@ -137,9 +184,6 @@ nnoremap <c-z> :Gina push <CR>
 nnoremap <Space> <PageDown> 
 nnoremap <S-Space> 
 
-" vim-surround mapping
-vmap s S
-
 " automatically set correct directory
 function! OnTabEnter(path)
 	if isdirectory(a:path)
@@ -148,7 +192,7 @@ function! OnTabEnter(path)
 		let dirname = fnamemodify(a:path,":h")
 	endif
 	execute "tcd ". dirname
-endfunction()
+endfunction
 
 autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 
@@ -182,8 +226,30 @@ set showtabline=2
 set laststatus=2
 
 " remap digraphs
-inoremap <C-y> <C-k>
+""inoremap <C-y> <C-k>
+" code highlighting for other languages inside markdown
+let g:markdown_fenced_languages = ['html', 'css', 'python', 'bash=sh', 'tex']
 
 " replace all span titles
 " :%s/<span>\(.*\)<\/span>/----\r## \1/g
-map <C-t> :%s!<span>\(.*\)</span>!----\r## \1!g<CR>
+nmap <C-t> :%s!<span>\(.*\)</span>!----\r## \1!g<CR>
+
+" shortcuts for aligning tables with tabular
+if exists(":Tabularize")
+	nnoremap <Leader>a :Tabularize /<bar><cr>
+endif
+
+" shortcut to edit init.vim
+nnoremap <C-i> :tabedit D:\Sync\Sync\vim-config\init.vim<cr>
+
+" general use shortcuts
+let mapleader=","
+" save
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :wq<cr>
+" replace word under cursor
+nnoremap <leader>f :%s/\<<c-r><c-w>\>//g<left><left>
+" move lines up or down
+nnoremap <leader>k :m-2<cr>==
+nnoremap <leader>j :m+<cr>==
+

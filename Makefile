@@ -19,3 +19,9 @@ uploadfs:
 
 update:
 	platformio -f -c vim update
+
+init:
+	platformio init --ide vim
+	powershell "(Get-Content .clang_complete).replace('\"','') | Set-Content compile_flags.txt"
+	powershell "rm .clang_complete"
+	powershell "rm .gcc-flags.json"
