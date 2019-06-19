@@ -2,15 +2,10 @@
 
 I wanted to centralize my vim config settings and any other installation instructions so that I can more easily keep things consistent. I will also keep track of things to improve to make the process easier.
 
-Currently have three files to track: 
-- init.vim (vimrc) 
-- ginit.vim (gui settings) 
-- snippets/markdown.snip (custom snippets for markdown)
-
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
 2. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
-3. Install pynvim
+3. Install pynvim (need to do this in both python 2 and 3 environments if both are to be used)
 ```
 pip install --user pynvim
 ```
@@ -19,14 +14,18 @@ pip install --user pynvim
 6. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
 7. Edit init.vim so it reads
 ```
-let g:python3_host_prog = '/path/to/python'
+let g:python3_host_prog = '/path/to/python3'
+let g:python_host_prog = '/path/to/python2'
 source /path/to/vim-config/init.vim
 ```
 8. Edit ginit.vim
 ```
 source /path/to/vim-config/ginit.vim
 ```
-9. make a symlink from vim-config/snippets to nvim/snippets
+9. make a symlink from vim-config/ultisnips to coc/ultisnips
+```
+cmd /c mklink ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
+```
 
 ### chromebook
 *I don't think these steps are needed for coc.nvim now that I have switched*
@@ -49,7 +48,7 @@ pip install platformio
 mkdir MyProject
 cp vim-config/Makefile MyProject/Makefile
 ```
-Edit the Makefile init entry so that it contains a --bard <ID> on the pio init line, then init with
+Edit the Makefile init entry so that it contains a --board <ID> on the pio init line, then init with
 ```
 make init
 ```
