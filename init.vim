@@ -240,7 +240,7 @@ if exists(":Tabularize")
 endif
 
 " shortcut to edit init.vim
-nnoremap <C-i> :tabedit D:\Sync\Sync\vim-config\init.vim<cr>
+nnoremap <C-i> :tabedit ~/AppData/Local/nvim/init.vim <CR>
 
 " general use shortcuts
 let mapleader=","
