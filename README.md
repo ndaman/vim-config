@@ -47,10 +47,14 @@ pip install platformio
 2. initialize project with
 ```
 mkdir MyProject
-pio init --ide vim --board <ID>
 cp vim-config/Makefile MyProject/Makefile
 ```
-3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers)
+Edit the Makefile init entry so that it contains a --bard <ID> on the pio init line, then init with
+```
+make init
+```
+3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers). 
+The ```make init``` command should generate the correct ```compile_flags.txt``` file for clangd to use and find the appropriate libraries/includes.
 
 ## TODO
 vim-ipython-cell [link](https://github.com/hanschen/vim-ipython-cell)
