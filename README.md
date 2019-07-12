@@ -24,7 +24,7 @@ source /path/to/vim-config/ginit.vim
 ```
 9. make a symlink from vim-config/ultisnips to coc/ultisnips
 ```
-cmd /c mklink ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
+cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
 ```
 
 ### chromebook
