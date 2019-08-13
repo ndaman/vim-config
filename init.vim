@@ -16,7 +16,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " Improved motion in Vim
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 " auto-close parenthesis etc. plugin
 Plug 'jiangmiao/auto-pairs'
@@ -80,6 +80,10 @@ Plug 'lervag/vimtex'
 " remotely control neovim, needed for some vimtex features
 Plug 'mhinz/neovim-remote'
 let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_general_viewer = 'SumatraPDF'
+let g:vimtex_view_general_options
+	\ = '-reuse-instance -forward-search @tex @line @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 call plug#end()
 
@@ -112,7 +116,8 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
+	\ pumvisible() ? coc#_select_confirm() :
+	\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap',['snippets-expand-jump',''])\<CR>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -148,8 +153,19 @@ let g:vmt_max_level = 1
 
 " function to convert fzf into relative path
 function! MyRelPath(...)
+	" for this to work you need to set up the following git alias
+	" run git config --global alias.ls-files-relative "ls-files $(git rev-parse
+	" --show-toplevel)"
+	
 	" full path to fzf file match
-	let target = getcwd() . '\' . substitute(a:1, '/', '\', 'g')
+	let relpath = substitute(a:1, '/', '\', 'g')
+	let target = getcwd() 
+	while stridx(relpath, '..') > -1
+		let relpath = substitute(relpath, '\.\.\\', '', '')
+		let target = substitute(target, '\\[^\\]\+$', '', '')
+	endwhile
+	let target = target . '\' . relpath
+"	execute ':normal! a' . target 
 
 	" current directory (not cwd)
 	let base = expand('%:p:h')
@@ -173,7 +189,8 @@ nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :Buffer<cr>
 
 " map relative path completion to <c-f> in edit mode
-inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files *.jpg *.jpeg *.png *.pdf *.svg *.html *.PNG', 'sink': function('MyRelPath')}) <CR> 
+" inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files *.jpg *.jpeg *.png *.pdf *.svg *.html *.PNG', 'sink': function('MyRelPath')}) <CR> 
+inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files-relative', 'sink': function('MyRelPath')}) <CR> 
 
 " git mapping 
 nnoremap <c-a> :Gina add .<CR> 
@@ -205,24 +222,45 @@ set shiftwidth=2
 set number
 
 " set colors in crystalline
-function! StatusLine(current)
-  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
-        \ . ' %f%h%w%m%r '
-        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
-        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
-        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
+function! StatusLine(current, width)
+  let l:s = ''
+
+  if a:current
+    let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+  else
+    let l:s .= '%#CrystallineInactive#'
+  endif
+  let l:s .= ' %2.40f%h%w%m%r '
+  if a:current
+    let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
+  endif
+
+  let l:s .= '%='
+  if a:current
+    let l:s .= crystalline#left_sep('', 'Fill') . ' %{&paste ?"PASTE ":""}%{&spell?"SPELL ":""}'
+    let l:s .= crystalline#left_mode_sep('')
+  endif
+  if a:width > 80
+    let l:s .= ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
+  else
+    let l:s .= ' '
+  endif
+
+  return l:s
 endfunction
 
 function! TabLine()
-  let l:vimlabel = has("nvim") ?  " NVIM " : " VIM "
+  let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
   return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
 endfunction
 
+let g:crystalline_enable_sep = 0
 let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
 let g:crystalline_theme = 'default'
 
 set showtabline=2
+set guioptions-=e
 set laststatus=2
 
 " remap digraphs
@@ -241,6 +279,10 @@ endif
 
 " shortcut to edit init.vim
 nnoremap <C-i> :tabedit ~/AppData/Local/nvim/init.vim <CR>
+
+" mappings for sneak to jump around page more easily
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
 " general use shortcuts
 let mapleader=","

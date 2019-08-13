@@ -27,8 +27,18 @@
 extends html, tex
 
 #comment
-snippet -- "reveal.js special comment"
+snippet -c "reveal.js special comment"
 <!-- .element ${1} -->
+endsnippet
+
+#hide bullet
+snippet hh "hide reveal.js bullet"
+style="list-style-type:none"
+endsnippet
+
+#fragment class
+snippet fr "reveal.js fragment class"
+class="fragment"
 endsnippet
 
 #figure
