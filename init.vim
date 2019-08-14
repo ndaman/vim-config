@@ -110,7 +110,7 @@ set shortmess+=c
 " show sign columns
 set signcolumn=yes
 
-" use tabe to select autocomplete
+" use tab to select autocomplete
 function! s:check_back_space() abort
 	let col=col('.') - 1
 	return !col || getline('.')[col - 1] =~# '\s'
@@ -141,9 +141,6 @@ let g:NERDTreeHijackNetrw=1
 " map NERDTree toggle
 map <C-b> :NERDTreeToggle<CR>
 
-" custom snippets file
-" let g:neosnippet#snippets_directory='~/AppData/Local/nvim/snippets'
-
 " customize markdown toc
 nnoremap <C-g> :GenTocGFM<CR>
 let g:vmt_auto_update_on_save = 1 
@@ -153,19 +150,15 @@ let g:vmt_max_level = 1
 
 " function to convert fzf into relative path
 function! MyRelPath(...)
-	" for this to work you need to set up the following git alias
-	" run git config --global alias.ls-files-relative "ls-files $(git rev-parse
-	" --show-toplevel)"
-	
-	" full path to fzf file match
+	" path from git root to file
 	let relpath = substitute(a:1, '/', '\', 'g')
+	" find root folder
+	let rootfolder = substitute(relpath, '\\.*', '', '')
+	" full path of cwd
 	let target = getcwd() 
-	while stridx(relpath, '..') > -1
-		let relpath = substitute(relpath, '\.\.\\', '', '')
-		let target = substitute(target, '\\[^\\]\+$', '', '')
-	endwhile
-	let target = target . '\' . relpath
-"	execute ':normal! a' . target 
+	" git root folder
+	let gitroot = substitute(target, rootfolder . '.*', '', '')
+	let target = gitroot . relpath
 
 	" current directory (not cwd)
 	let base = expand('%:p:h')
@@ -190,8 +183,10 @@ nnoremap <C-o> :Buffer<cr>
 
 " map relative path completion to <c-f> in edit mode
 " inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files *.jpg *.jpeg *.png *.pdf *.svg *.html *.PNG', 'sink': function('MyRelPath')}) <CR> 
-inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files-relative', 'sink': function('MyRelPath')}) <CR> 
-
+" this method is a bit slow (external call to powershell), but it works
+" consistently (i.e. across different git folders)
+" inoremap <c-f> <c-o>:call fzf#run({'source': 'powershell -command "git ls-files $(git rev-parse --show-toplevel)"', 'sink': function('MyRelPath')}) <CR> 
+inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files-root', 'sink': function('MyRelPath')}) <CR>
 " git mapping 
 nnoremap <c-a> :Gina add .<CR> 
 nnoremap <c-s> :Gina commit <CR>
