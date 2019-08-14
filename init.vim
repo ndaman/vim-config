@@ -174,7 +174,7 @@ function! MyRelPath(...)
 	endif
 
 	let regmatch = substitute(base, '\', '\\\\', 'g')
-	execute ':normal! a' . prefix . substitute(target, regmatch, '', '')
+	execute ':normal! i' . prefix . substitute(target, regmatch, '', '')
 endfunction
 
 " More fzf mapping
