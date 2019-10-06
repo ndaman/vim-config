@@ -1,7 +1,7 @@
 call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Switch to coc.nvim completion
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " CocInstall coc-omni
 " CocInstall coc-snippets
 " CocInstall coc-vimtex
@@ -20,6 +20,8 @@ Plug 'justinmk/vim-sneak'
 
 " auto-close parenthesis etc. plugin
 Plug 'jiangmiao/auto-pairs'
+" add $ to auto-close for latex work
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '$':'$', '$$':'$$'}
 
 " fancy start page
 Plug 'mhinz/vim-startify'
@@ -56,9 +58,6 @@ Plug 'morhetz/gruvbox'
 " Autogenerate table of contents
 Plug 'ndaman/vim-markdown-toc'
 
-" shortcuts for git add, commit, push, etc.
-Plug 'lambdalisue/gina.vim'
-
 " get targets from makefile, good integration with platformio
 " need to learn this better
 Plug 'neomake/neomake'
@@ -84,6 +83,9 @@ let g:vimtex_view_general_viewer = 'SumatraPDF'
 let g:vimtex_view_general_options
 	\ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk = { 'options' : [ '-shell-escape' ] }
+let g:vimtex_compiler_latexmk_engines = { '_' : '-xelatex' }
 
 call plug#end()
 
@@ -102,7 +104,7 @@ set hidden
 set nobackup
 set nowritebackup
 " better display for messages
-set cmdheight=2
+set cmdheight=1
 " smaller update time for CursorHold
 set updatetime=300
 " don't give ins-completion messages
@@ -137,9 +139,10 @@ nnoremap <C-l> <C-w>l
 
 " let NERDTree take over netrw (default folder navigation)
 let g:NERDTreeHijackNetrw=1
-
 " map NERDTree toggle
 map <C-b> :NERDTreeToggle<CR>
+" ignore filetypes in NERDTree
+let g:NERDTreeIgnore=['\.fdb_latexmk$','\.fls$', '\.pdf$','\.aux$','\.gz$','\.nav$','\.out$','\.snm$','\.md5$']
 
 " customize markdown toc
 nnoremap <C-g> :GenTocGFM<CR>
@@ -174,39 +177,31 @@ function! MyRelPath(...)
 	endif
 
 	let regmatch = substitute(base, '\', '\\\\', 'g')
-	execute ':normal! i' . prefix . substitute(target, regmatch, '', '')
+	let winpath = substitute(target, regmatch, '', '')
+	let winpath = substitute(winpath, ' ', '%20', 'g')
+	execute ':normal! i' . prefix . substitute(winpath, '\', '/', 'g')
 endfunction
 
 " More fzf mapping
 nnoremap <C-p> :Files<cr>
 nnoremap <C-o> :Buffer<cr>
+" fuzzy search for lines in file
+nnoremap <leader>b :BLines<cr>
+" fuzzy search for word in buffer
+nnoremap <leader>r :Rg<cr>
 
 " map relative path completion to <c-f> in edit mode
 " inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files *.jpg *.jpeg *.png *.pdf *.svg *.html *.PNG', 'sink': function('MyRelPath')}) <CR> 
 " this method is a bit slow (external call to powershell), but it works
 " consistently (i.e. across different git folders)
 " inoremap <c-f> <c-o>:call fzf#run({'source': 'powershell -command "git ls-files $(git rev-parse --show-toplevel)"', 'sink': function('MyRelPath')}) <CR> 
+" for current method to work need to run "git config --global
+" alias.ls-files-root "! git ls-files" in terminal"
 inoremap <c-f> <c-o>:call fzf#run({'source': 'git ls-files-root', 'sink': function('MyRelPath')}) <CR>
-" git mapping 
-nnoremap <c-a> :Gina add .<CR> 
-nnoremap <c-s> :Gina commit <CR>
-nnoremap <c-z> :Gina push <CR>
 
 " map scrolling
 nnoremap <Space> <PageDown> 
 nnoremap <S-Space> 
-
-" automatically set correct directory
-function! OnTabEnter(path)
-	if isdirectory(a:path)
-		let dirname = a:path
-	else
-		let dirname = fnamemodify(a:path,":h")
-	endif
-	execute "tcd ". dirname
-endfunction
-
-autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 
 " set tabs to display smaller
 set tabstop=2
@@ -246,7 +241,7 @@ endfunction
 
 function! TabLine()
   let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
-  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+	return crystalline#bufferline(3, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
 endfunction
 
 let g:crystalline_enable_sep = 0
@@ -258,13 +253,10 @@ set showtabline=2
 set guioptions-=e
 set laststatus=2
 
-" remap digraphs
-""inoremap <C-y> <C-k>
 " code highlighting for other languages inside markdown
 let g:markdown_fenced_languages = ['html', 'css', 'python', 'bash=sh', 'tex']
 
 " replace all span titles
-" :%s/<span>\(.*\)<\/span>/----\r## \1/g
 nmap <C-t> :%s!<span>\(.*\)</span>!----\r## \1!g<CR>
 
 " shortcuts for aligning tables with tabular
@@ -281,6 +273,7 @@ map F <Plug>Sneak_S
 
 " general use shortcuts
 let mapleader=","
+let maplocalleader=","
 " save
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
@@ -290,3 +283,18 @@ nnoremap <leader>f :%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+<cr>==
 
+" open todo list in right split
+nnoremap <leader>t :execute 'bo vs ' . g:todofile <cr>
+
+" turn off highlighting after search
+nnoremap <leader>n :noh<cr>
+
+" git mapping 
+nnoremap <leader>s :G <cr>
+nnoremap <leader>z :Gpush <CR>
+
+" cd to current file
+nnoremap <leader>c :cd %:p:h<cr>
+
+" open current file in nerdtree
+map <leader>r :NERDTreeFind<cr>
