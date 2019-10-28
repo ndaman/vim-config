@@ -26,6 +26,10 @@ source /path/to/vim-config/ginit.vim
 ```
 cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
 ```
+10. make a symlink from vim-config/ftdetect to nvim/
+```
+cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
+``` 
 
 ### chromebook
 *I don't think these steps are needed for coc.nvim now that I have switched*
