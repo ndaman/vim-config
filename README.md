@@ -4,29 +4,30 @@ I wanted to centralize my vim config settings and any other installation instruc
 
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
-2. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
-3. Install pynvim (need to do this in both python 2 and 3 environments if both are to be used)
+2. Install git
+3. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
+4. Install pynvim (need to do this in both python 2 and 3 environments if both are to be used)
 ```
 pip install --user pynvim
 ```
-4. Install [vim-plug](https://github.com/junegunn/vim-plug)
-5. Install fzf binary (`choco install fzf`)
-6. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
-7. Edit init.vim so it reads
+5. Install [vim-plug](https://github.com/junegunn/vim-plug)
+6. Install fzf binary (`choco install fzf`)
+7. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
+8. Edit init.vim so it reads
 ```
 let g:python3_host_prog = '/path/to/python3'
 let g:python_host_prog = '/path/to/python2'
 source /path/to/vim-config/init.vim
 ```
-8. Edit ginit.vim
+9. Edit ginit.vim
 ```
 source /path/to/vim-config/ginit.vim
 ```
-9. make a symlink from vim-config/ultisnips to coc/ultisnips
+10. make a symlink from vim-config/ultisnips to coc/ultisnips
 ```
 cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
 ```
-10. make a symlink from vim-config/ftdetect to nvim/
+11. make a symlink from vim-config/ftdetect to nvim/
 ```
 cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
 ``` 
