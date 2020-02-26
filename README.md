@@ -12,22 +12,23 @@ pip install --user pynvim
 ```
 5. Install [vim-plug](https://github.com/junegunn/vim-plug)
 6. Install fzf binary (`choco install fzf`)
-7. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
-8. Edit init.vim so it reads
+7. Install ripgrep (`choco install ripgrep`)
+8. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
+9. Edit init.vim so it reads
 ```
 let g:python3_host_prog = '/path/to/python3'
 let g:python_host_prog = '/path/to/python2'
 source /path/to/vim-config/init.vim
 ```
-9. Edit ginit.vim
+10. Edit ginit.vim
 ```
 source /path/to/vim-config/ginit.vim
 ```
-10. make a symlink from vim-config/ultisnips to coc/ultisnips
+11. make a symlink from vim-config/ultisnips to coc/ultisnips
 ```
 cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
 ```
-11. make a symlink from vim-config/ftdetect to nvim/
+12. make a symlink from vim-config/ftdetect to nvim/
 ```
 cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
 ``` 
