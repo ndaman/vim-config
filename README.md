@@ -30,6 +30,7 @@ cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
 ```
 cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
 ``` 
+make my own fork of lsdyna plugin and download that instead of original
 more work is needed to edit the lsdyna plugin to avoid having it overwrite the default colorscheme
 
 ### chromebook

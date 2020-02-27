@@ -28,7 +28,7 @@ Plug 'mhinz/vim-startify'
 
 " fuzzy search, need binary installed separately
 " see my custom function later for autocomplete
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " simple project browser
@@ -65,7 +65,7 @@ Plug 'neomake/neomake'
 " Plug 'barafael/neomake-platformio' "doesn't work
 
 " lsdyna syntax and completion
-Plug 'gradzikb/vim-lsdyna'
+Plug 'ndaman/vim-lsdyna'
 
 " ripgrep searching
 Plug 'jremmen/vim-ripgrep'
@@ -86,6 +86,7 @@ let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_compiler_latexmk = { 'options' : [ '-shell-escape' ] }
 let g:vimtex_compiler_latexmk_engines = { '_' : '-xelatex' }
+let g:vimtex_quickfix_mode = 1
 
 call plug#end()
 
@@ -296,5 +297,13 @@ nnoremap <leader>z :Gpush <CR>
 " cd to current file
 nnoremap <leader>c :cd %:p:h<cr>
 
-" open current file in nerdtree
+" open current file in nerd tree
 map <leader>r :NERDTreeFind<cr>
+
+" spelling
+setlocal spell
+set spelllang=en_us
+" better solution is to use ftplugin https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types
+autocmd FileType latex,tex,md,markdown setlocal spell
+" set rtp+=C:\ProgramData\chocolatey\bin\fzf.exe
+
