@@ -44,7 +44,8 @@ pip3 install --user pynvim
 3. proceed as usual
 
 ### platformio
-1. install python 2
+1. ~~install python 2
+no longer necessary (platformio now works in python 3)
 ``` 
 conda create -n py27 python=2.7
 conda activate py27
@@ -60,7 +61,7 @@ Edit the Makefile init entry so that it contains a --board <ID> on the pio init 
 make init
 ```
 3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers). 
-The ```make init``` command should generate the correct ```compile_flags.txt``` file for clangd to use and find the appropriate libraries/includes.
+The ```make init``` command should generate the correct ```compile_commands.json``` file for clangd to use and find the appropriate libraries/includes.
 
 ## TODO
 vim-ipython-cell [link](https://github.com/hanschen/vim-ipython-cell)
