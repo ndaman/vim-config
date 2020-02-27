@@ -77,4 +77,5 @@ coc.nvim causes some very annoying delays when I'm working on LS-DYNA files. I t
 
 I would like to transition from using coc.nvim to the new built-in lsp [link](https://github.com/neovim/nvim-lsp)
 
-for platformio and clangd, ```compile_flags.txt``` does not always work.
+for platformio and clangd, ```compile_commands.json``` needs to be moved to root directory to function properly.
+Instructions are [here](https://docs.platformio.org/en/latest/faq.html#compilation-database-compile-commands-json), but I would like to automate the process better.
