@@ -63,6 +63,7 @@ make init
 ```
 3. to get autocomplete working properly, install [clangd](https://clang.llvm.org/extra/clangd/) and configure it for [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Language-servers). 
 The ```make init``` command should generate the correct ```compile_commands.json``` file for clangd to use and find the appropriate libraries/includes.
+4. looks for src/main.cpp to find setup() and loop() functions.
 
 ## TODO
 
