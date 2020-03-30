@@ -74,6 +74,10 @@ let g:rg_command = 'rg --vimgrep -S'
 " quickfix reflector for editing the quickfix
 Plug 'stefandtw/quickfix-reflector.vim'
 
+" easily interact with tmux
+Plug 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
+
 " latex integration
 Plug 'lervag/vimtex'
 " remotely control neovim, needed for some vimtex features
