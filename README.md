@@ -41,17 +41,7 @@ ln -s /path/to/vim-config/ultisnips ~/.config/coc/ultisnips
 ```
 cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
 ``` 
-make my own fork of lsdyna plugin and download that instead of original
-more work is needed to edit the lsdyna plugin to avoid having it overwrite the default colorscheme
-
-### chromebook
-*I don't think these steps are needed for coc.nvim now that I have switched*
-1. install pynvim
-``` 
-pip3 install --user pynvim 
-```
-2. manually install old version of deoplete [link](https://github.com/Shougo/deoplete.nvim/releases/tag/4.1) (unzip to ~/.config/nvim/)
-3. proceed as usual
+some more work is needed to edit the lsdyna plugin to avoid having it overwrite the default colorscheme
 
 ### platformio
 1. ~~install python 2~~
