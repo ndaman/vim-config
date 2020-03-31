@@ -6,9 +6,14 @@ I wanted to centralize my vim config settings and any other installation instruc
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
 2. Install git
 3. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
+	On Ubuntu, install the AppImage for the latest version. To use in WSL, must unpack fist
 4. Install pynvim (need to do this in both python 2 and 3 environments if both are to be used)
 ```
 pip install --user pynvim
+```
+or
+```
+pip3 install pynvim
 ```
 5. Install [vim-plug](https://github.com/junegunn/vim-plug)
 6. Install fzf binary (`choco install fzf`)
@@ -27,6 +32,10 @@ source /path/to/vim-config/ginit.vim
 11. make a symlink from vim-config/ultisnips to coc/ultisnips
 ```
 cmd /c mklink /D ~/AppData/Local/coc/ultisnips /path/to/vim-config/ultisnips
+```
+or
+```
+ln -s /path/to/vim-config/ultisnips ~/.config/coc/ultisnips
 ```
 12. make a symlink from vim-config/ftdetect to nvim/
 ```
