@@ -2,7 +2,6 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Switch to coc.nvim completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" CocInstall coc-omni
 " CocInstall coc-snippets
 " CocInstall coc-vimtex
 " CocInstall coc-dictionary
@@ -270,7 +269,7 @@ if exists(":Tabularize")
 endif
 
 " shortcut to edit init.vim
-nnoremap <C-i> :tabedit ~/AppData/Local/nvim/init.vim <CR>
+nnoremap <C-i> :tabedit $MYVIMRC <CR>
 
 " mappings for sneak to jump around page more easily
 map f <Plug>Sneak_s
