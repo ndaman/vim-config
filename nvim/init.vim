@@ -161,21 +161,21 @@ let g:vmt_max_level = 1
 " this is built for windows, need to adjust to work in linux
 function! MyRelPath(...)
 	" path from git root to file
-	let relpath = substitute(a:1, '/', '\', 'g')
-	" find root folder
-	let rootfolder = substitute(relpath, '\\.*', '', '')
+	let relpath = a:1
 	" full path of cwd
-	let target = getcwd() 
+	let cwd = getcwd() 
 	" git root folder
-	let gitroot = substitute(target, rootfolder . '.*', '', '')
-	let target = gitroot . relpath
+	" let gitroot = substitute(target, rootfolder . '.*', '', '')
+	let gitroot = systemlist('git rev-parse --show-toplevel')[0]
+	" full path to target file
+	let target = gitroot . '/' . relpath
 
 	" current directory (not cwd)
 	let base = expand('%:p:h')
 
 	let prefix = ""
 	while strridx(target, base) != 0
-		let base = substitute(base, '\\[^\\]\+$', '', '')
+		let base = substitute(base, '\/[^\/]\+$', '', '')
 		let prefix = '..' . prefix
 	endwhile
 
@@ -183,10 +183,10 @@ function! MyRelPath(...)
 		let prefix = '.'
 	endif
 
-	let regmatch = substitute(base, '\', '\\\\', 'g')
-	let winpath = substitute(target, regmatch, '', '')
+	let winpath = substitute(target, base, '', '')
+	" fix spaces for links
 	let winpath = substitute(winpath, ' ', '%20', 'g')
-	execute ':normal! i' . prefix . substitute(winpath, '\', '/', 'g')
+	execute ':normal! i' . prefix . winpath
 endfunction
 
 " More fzf mapping
