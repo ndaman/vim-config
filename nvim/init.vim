@@ -132,7 +132,7 @@ inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 let g:coc_snippet_next = '<Tab>'
 let g:coc_snippet_prev = '<S-Tab>'
 
-" use enter to accept expandion
+" use enter to accept expansion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " map keyboard for changing windows
@@ -144,9 +144,11 @@ nnoremap <C-l> <C-w>l
 " let NERDTree take over netrw (default folder navigation)
 let g:NERDTreeHijackNetrw=1
 " map NERDTree toggle
-map <C-b> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 " ignore filetypes in NERDTree
-let g:NERDTreeIgnore=['\.fdb_latexmk$','\.fls$', '\.pdf$','\.aux$','\.gz$','\.nav$','\.out$','\.snm$','\.md5$']
+let g:NERDTreeIgnore=['\.xdv$','\.fdb_latexmk$','\.fls$', '\.pdf$','\.aux$','\.gz$','\.nav$','\.out$','\.snm$','\.md5$']
+" quit nerdtree on file open
+let NERDTreeAutoDeleteBuffer = 1
 
 " customize markdown toc
 nnoremap <C-g> :GenTocGFM<CR>
@@ -156,6 +158,7 @@ let g:vmt_min_level = 1
 let g:vmt_max_level = 1
 
 " function to convert fzf into relative path
+" this is built for windows, need to adjust to work in linux
 function! MyRelPath(...)
 	" path from git root to file
 	let relpath = substitute(a:1, '/', '\', 'g')
@@ -301,7 +304,7 @@ nnoremap <leader>z :Gpush <CR>
 nnoremap <leader>c :cd %:p:h<cr>
 
 " open current file in nerd tree
-map <leader>r :NERDTreeFind<cr>
+" map <leader>r :NERDTreeFind<cr>
 
 " spelling
 setlocal spell
@@ -309,4 +312,10 @@ set spelllang=en_us
 " better solution is to use ftplugin https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types
 autocmd FileType latex,tex,md,markdown setlocal spell
 " set rtp+=C:\ProgramData\chocolatey\bin\fzf.exe
+
+" relative line numbering
+set relativenumber
+
+" use system clipboard
+set clipboard=unnamedplus
 
