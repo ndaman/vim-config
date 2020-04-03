@@ -325,3 +325,6 @@ set clipboard=unnamedplus
 " start recording nvim session
 nnoremap <leader>o :Obsess ~/sessions/
 nnoremap <leader>p :source ~/sessions/
+
+" git add current file and start commit
+nnoremap <leader>a :Gwrite<bar>Gcommit -m
