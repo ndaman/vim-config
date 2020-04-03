@@ -77,6 +77,9 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 
+" restore vim sessions in tmux
+Plug 'tpope/vim-obsession'
+
 " latex integration
 Plug 'lervag/vimtex'
 " remotely control neovim, needed for some vimtex features
@@ -319,3 +322,6 @@ set relativenumber
 " use system clipboard
 set clipboard=unnamedplus
 
+" start recording nvim session
+nnoremap <leader>o :Obsess ~/sessions/
+nnoremap <leader>p :source ~/sessions/
