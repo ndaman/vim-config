@@ -1,14 +1,9 @@
 ; global media keys were not working in VLC, so I switched to controlsend
-SetTitleMatchMode, 2
 
 ; mouse keys for music
 +XButton1::
-if WinExist("ahk_exe vlc.exe")
-	MsgBox % "VLC's ID is " . WinExist("ahk_exe vlc.exe")
-else
-	MsgBox % "VLC not found"
-;	Send {Media_Prev}
-;	prev()
+	Send {Media_Prev}
+	prev()
 return
 ; XButton2 = forward
 +XButton2::
@@ -42,15 +37,18 @@ return
 ^!Up::Send					{Volume_Up}
 ^!Down::Send				{Volume_Down}
 
+if WinExist("ahk_exe vlc.exe")
+	vlc_id := WinExist("ahk_exe vlc.exe")
+
 ; controlsend commands
 prev()
-{ControlSend,,p,,VLC
+{ControlSend,,p,,ahk_id %vlc_id%
 }
 
 next()
-{ControlSend,,n,,VLC
+{ControlSend,,n,,ahk_id %vlc_id%
 }
 
 playPause()
-{ControlSend,,{Space},,VLC
+{ControlSend,,{Space},,ahk_id %vlc_id%
 }
