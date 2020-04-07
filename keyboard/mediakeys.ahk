@@ -40,10 +40,13 @@ return
 
 ; controlsend commands
 prev()
-{ControlSend,,p,VLC}
+{ControlSend,,p,VLC
+}
 
 next()
-{ControlSend,,n,VLC}
+{ControlSend,,n,VLC
+}
 
 playPause()
-{ControlSend,,Space,VLC}
+{ControlSend,,Space,VLC
+}
