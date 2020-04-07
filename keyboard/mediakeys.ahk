@@ -3,8 +3,12 @@ SetTitleMatchMode, 2
 
 ; mouse keys for music
 +XButton1::
-	Send {Media_Prev}
-	prev()
+if WinExist("ahk_exe vlc.exe")
+	MsgBox % "VLC's ID is " . WinExist("ahk_exe vlc.exe")
+else
+	MsgBox % "VLC not found"
+;	Send {Media_Prev}
+;	prev()
 return
 ; XButton2 = forward
 +XButton2::
