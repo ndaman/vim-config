@@ -48,5 +48,5 @@ next()
 }
 
 playPause()
-{ControlSend,,Space,VLC
+{ControlSend,,{space},VLC
 }
