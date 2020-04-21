@@ -43,16 +43,7 @@ HandleKey(Key) {
 				newKey := "Space"
       break
     }
-		Else If (RegexMatch(A_LoopField, "Edit Pad.*")) {
-      TabName := A_LoopField
-			If (Key == "p")
-				newKey := "k"
-			Else If (Key == "n")
-				newKey := "j"
-			Else If (Key == "s")
-				newKey := "Space"
-      break
-    }}
+	}
 
   If (TabName = "") {
     return
@@ -61,7 +52,7 @@ HandleKey(Key) {
   JEE_FirefoxFocusTabByName(FF, TabName)
   Sleep 200
 	ff_id := WinExist("ahk_exe firefox.exe")
-  ControlSend, , {%newKey%}, ahk_id %ff_id%
+  ControlSend, ahk_parent , {%newKey%}, ahk_id %ff_id%
   JEE_FirefoxFocusTabByName(FF, CurrentTitle)
 }
 
