@@ -7,7 +7,7 @@ HandleKey(Key) {
   WinGet FF, ID, ahk_exe firefox.exe
   Tabs := JEE_FirefoxGetTabNames(FF)
   WinGetTitle, CurrentTitle, ahk_id %FF%
-  SubstrPos := InStr(CurrentTitle, " - Firefox Developer Edition")
+  SubstrPos := InStr(CurrentTitle, " - Mozilla Firefox")
   CurrentTitle := SubStr(CurrentTitle, 1, SubstrPos - 1)
   TabName = ""
 
