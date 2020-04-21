@@ -51,6 +51,7 @@ HandleKey(Key) {
 
   JEE_FirefoxFocusTabByName(FF, TabName)
   Sleep 200
+	MsgBox Sending %newKey%
   ControlSend, , {%newKey%}, ahk_id %FF%
   JEE_FirefoxFocusTabByName(FF, CurrentTitle)
 }
