@@ -53,6 +53,7 @@ HandleKey(Key) {
   Sleep 200
 	ff_id := WinExist("ahk_exe firefox.exe")
   ControlSend, ahk_parent , {%newKey%}, ahk_id %ff_id%
+	Sleep 200
   JEE_FirefoxFocusTabByName(FF, CurrentTitle)
 }
 
