@@ -26,11 +26,11 @@ HandleKey(Key) {
     Else If (RegexMatch(A_LoopField, "Amazon Music")) {
       TabName := A_LoopField
 			If (Key == "p")
-				newKey := "Space"
-			Else If (Key == "n")
 				newKey := "Left"
-			Else If (Key == "s")
+			Else If (Key == "n")
 				newKey := "Right"
+			Else If (Key == "s")
+				newKey := "Space"
       break
     }
 	  Else If (RegexMatch(A_LoopField, ".*YouTube Music")) {
