@@ -43,7 +43,16 @@ HandleKey(Key) {
 				newKey := "Space"
       break
     }
-	}
+		Else If (RegexMatch(A_LoopField, "Edit Pad.*")) {
+      TabName := A_LoopField
+			If (Key == "p")
+				newKey := "k"
+			Else If (Key == "n")
+				newKey := "j"
+			Else If (Key == "s")
+				newKey := "Space"
+      break
+    }}
 
   If (TabName = "") {
     return
