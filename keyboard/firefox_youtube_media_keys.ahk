@@ -51,9 +51,8 @@ HandleKey(Key) {
 
   JEE_FirefoxFocusTabByName(FF, TabName)
   Sleep 200
-	np_id := WinExist("ahk_exe notepad.exe")
-	ControlSend,,{%newKey%},ahk_id %np_id%
-  ControlSend, , {%newKey%}, ahk_id %FF%
+	ff_id := WinExist("ahk_exe firefox.exe")
+  ControlSend, , {%newKey%}, ahk_id %ff_id%
   JEE_FirefoxFocusTabByName(FF, CurrentTitle)
 }
 
