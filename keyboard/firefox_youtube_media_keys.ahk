@@ -13,7 +13,7 @@ HandleKey(Key) {
 
   Loop, Parse, Tabs, `n
   {
-    If (RegexMatch(A_LoopField, "Spotify.*")) {
+    If (RegexMatch(A_LoopField, ".*·.*")) {
       TabName := A_LoopField
 			If (Key == "p")
 				newKey := "a"
