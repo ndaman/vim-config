@@ -33,7 +33,7 @@ HandleKey(Key) {
 				newKey := "Right"
       break
     }
-	  Else If (RegexMatch(A_LoopField, ".*\- YouTube Music")) {
+	  Else If (RegexMatch(A_LoopField, ".*YouTube Music")) {
       TabName := A_LoopField
 			If (Key == "p")
 				newKey := "k"
