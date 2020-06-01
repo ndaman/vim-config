@@ -111,8 +111,8 @@ filetype plugin on
 "endif
 
 inoremap <expr><buffer> <C-Tab> vimwiki#tbl#kbd_tab()
-let g:vimwiki_list = [{'path': '~/vim-config/vimwiki/', 
-			\ 'path_html': '~/vim-config/vimwiki/html/',
+let g:vimwiki_list = [{'path': '~/vimwiki/', 
+			\ 'path_html': '~/vimwiki/html/',
 			\ 'ext': '.wiki'}]
 au FileType vimwiki setlocal shiftwidth=2 tabstop=2 expandtab
 let g:vimwiki_key_mappings = {
