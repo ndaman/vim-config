@@ -1,0 +1,31 @@
+= TODO today =
+
+- [X] mechanics of materials
+	- [X] upload lecture
+	- [X] announce corrections
+	- [X] post lathe picture
+	- [X] render/post pdfs for lectures
+ 
+- [o] damage tolerance
+	- [X] Record crack retardation lecture
+	- [ ] grade homework
+	- [X] make sure exam is ready to post tomorrow
+ 
+- [o] research
+	- [ ] flux trial
+	- [X] schedule jacob's defense
+	- [ ] journal for khadija
+	- [X] contingency plan for students/research
+		- [X] fyre research/students
+		- [X] summer 878 (project research)
+	- [X] email brandon/hemal about flux/altair phone call
+	- [ ] research expertise ppt slides for jan
+ 
+- [ ] service
+	- [ ] search email for all abet-related communication, save to special folder
+	- [ ] email committee about current status of course material, update tracker accordingly
+	- [ ] ask scott about abet deadlines (virtual visit?)
+ 
+- [ ] other
+	- [ ] work email in mutt
+	- [ ] reviewers for dossier

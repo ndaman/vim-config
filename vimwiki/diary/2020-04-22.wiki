@@ -1,0 +1,79 @@
+= Wednesday =
+
+- [.] mechanics of materials
+  - [ ] re-record group 2 example from superposition lecture
+  - [ ] grade exams (wed, thu, fri)
+  - [ ] review survey feedback (fri, mon)
+  - [ ] plan demo problem for recitation
+	- [X] update homework 10
+	- [X] update homework 11
+ 
+- [o] damage tolerance
+	- [X] grade homework 7
+  - [X] post solutions to homework 8 
+  - [ ] grade homework 8 (thu)
+  - [ ] grade exam 2 (friday, mon)
+ 
+- [.] research
+  - [X] jacob's project defense
+  - [X] jacob final report
+	- [ ] do example in flux (thursday)
+	- [ ] journal for khadija (thu, fri)
+	- [ ] research expertise ppt slides for jan (wed, thu)
+	- [ ] quarterly masc report (thu)
+	- [ ] check in with Kaleb (fri)
+	- [ ] outline paper with Adrian's work -- email him? (fri)
+ 
+- [ ] service
+	- [ ] search email for all abet-related communication, save to special folder (fri)
+	- [ ] email committee about current status of course material, update tracker accordingly
+	- [ ] ask scott about abet deadlines (virtual visit?)
+ 
+- [ ] other
+  - [ ] virtual open house (emma?)
+  - [ ] tune derailleurs on bike
+  - [ ] https://www.auctionninja.com/sungroup-real-estate/product/measuring-devices-and-multimeter-38.html
+
+- [ ] mutt
+  - [ ] decide: mu or notmuch indexing?
+    - [ ] mu: folders (easier to sync)
+    - [ ] notmuch: tags (not easy ot sync)
+	- [ ]	setup contact sync (khard?)
+	- [ ] set up tagging (notmuch)
+	- [ ] calendar/events?
+	- [ ] move configs w/ non-sensitive information to git
+	- [ ] pass from command line?
+	
+- [.] home
+  - [.] today
+    - [ ] rake yard
+    - [ ] flush sprinklers
+    - [ ] chicken fence
+      - [ ] cut posts 
+      - [ ] dig post holes
+      - [ ] cement posts
+      - [ ] build gate
+    - [ ] set up 3D printer
+      - [ ] bed leveling
+      - [ ] klipper pressure advance
+      - [ ] dupont cable holders
+      - [ ] pluto's friend
+      - [ ] saw file angle set tool
+      - [ ] center finder
+      - [ ] sanding strip 
+    - [ ] plane calvin's workbench
+    - [ ] order replacement light bulbs
+    - [X] plan out gutter cleaning
+  - [ ] future
+    - [ ] update sprinkler controller with retain: true for all publish events
+      - [ ] can fix from shell (still need to upload to esp module for more permanent fix)
+    - [ ] solder and flash cc2531 chip
+      - [ ] flashing seemed to go well, but it is currently not working on the Pi
+      - [ ] I woud like to get a new raspberry pi to run the alarmdecoder and the cc2531
+      - [ ] probably needs a better power supply
+    - [ ] clean workshop
+    - [ ] diy thermostat/humidistat
+ 
+- [o] exercise
+	- [ ] golden cheetah
+

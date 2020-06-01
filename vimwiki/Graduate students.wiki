@@ -1,0 +1,23 @@
+Khyati
+	Current report is very lacking, needs to explain differences with Harjinder's results
+	Her extrusion width makes no sense (less than nozzle diameter), very likely will need to repeat tests
+
+Yacub
+	Better than expected results
+	Intralaminar specimens need some refinement
+
+Richard
+
+Christopher
+
+Emma
+
+Jay
+
+Nicolo
+	Will probably follow Yacub's work and refine the intralaminar specimens
+
+James
+	Use diverging nozzle to compare with Yacub and Nicolo's work.
+
+Fernando

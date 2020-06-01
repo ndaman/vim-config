@@ -1,0 +1,93 @@
+= Sunday =
+
+ - [ ] mutt
+  - [ ] decide: mu or notmuch indexing?
+    - [ ] mu: folders (easier to sync)
+    - [ ] notmuch: tags (not easy ot sync)
+	- [ ]	contacts: notmuch autocomplete? something similar for mu?
+	- [ ] move configs w/ non-sensitive information to git
+	- [ ] pass from command line?
+	
+- [ ] home
+    - [ ] set up 3D printer
+      - [ ] new hero me fan duct
+      - [ ] klipper pressure advance
+      - [ ] saw file angle set tool
+      - [ ] sanding strip 
+      - [ ] remote mounts
+      - [ ] pegboard inserts
+      - [ ] electronics vise
+      - [ ] built-in hero me attachment for bfptouch?
+      - [ ] vinyl cutter attachment?: https://www.thingiverse.com/thing:3887386
+      - [ ] pen holder attachment?: https://www.thingiverse.com/thing:3439597
+
+- [.] house projects
+  - [X] chicken fence ( fri )
+    - [X] cut posts 
+    - [X] dig post holes
+    - [X] cement posts
+    - [X] build gate
+    - [X] install gate
+    - [X] install fencing
+  - [ ] clean gutters ( next week )
+  - [ ] WiFi repeater from old router
+  - [ ] finish drip line ( next week )
+  - [ ] patch sheetrock in basement ( mid may/june )
+ 
+- [ ] workshop projects
+  - [ ] list bandsaw ( sun )
+  - [ ] calvin's workbench ( sun )
+    - [ ] plane top and bottom ( sun )
+    - [ ] drill holes for legs ( sun )
+    - [ ] cut legs ( sun )
+  - [ ] my new desk ( next week)
+  - [ ] clean miter table ( next week )
+    - [ ] pegboard for tools
+    - [ ] more shelving?
+  - [ ] table saw fence (next week)
+    - [ ] router table extension
+  - [ ] saw till https://www.instructables.com/id/Saw-Rack/
+  - [ ] clean saws
+  - [ ] clean brace & bits
+  - [ ] air tools rack https://www.youtube.com/watch?v=WbZkqSSa8Wk
+  - [ ] lathe grinder? / grinder station
+  - [ ] leg vise
+  - [ ] lathe chisels
+  - [ ] plane clean-up
+  - [ ] dust collector
+  - [ ] drill press table
+ 
+- [ ] future
+  - [ ] update sprinkler controller with retain: true for all publish events
+    - [ ] can fix from shell (still need to upload to esp module for more permanent fix)
+    - [ ] also add ota software update
+  - [ ] solder and flash cc2531 chip
+    - [ ] https://www.zigbee2mqtt.io/information/windows.html
+    - [ ] flashing seemed to go well, but it is currently not working on the Pi
+    - [ ] I woud like to get a new raspberry pi to run the alarmdecoder and the cc2531
+    - [ ] probably needs a better power supply
+  - [ ] clean workshop
+  - [ ] diy thermostat/humidistat
+    
+- [o] exercise
+	- [ ] golden cheetah
+  - [ ] plan a 5k run ( 5/9? )
+  
+- [ ] sleeving
+  - [ ] ($30 for a single diy usb cable kit) https://zapcables.com/diy-detachable-usb-cable-kit/
+    - [ ] cruz ctl also has a page
+  - [ ] full diy ( usb + pc sleeving )
+    - [ ] $5/100ft paracord https://www.aliexpress.com/item/32697322289.html?trace=wwwdetail2mobilesitedetail
+    - [ ] $18/100ft techflex https://www.ebay.com/itm/1-8-Techflex-PTN0-13-Braided-Expandable-Sleeving-PET-10ft-25ft-50ft-100ft-/350705113934
+    - [ ] $30/100ft usb cable (24 awg) (mouser)
+    - [ ] $8/5x gx16 connector https://www.ebay.com/itm/US-5-Pairs-GX16-4-Pin-Aviation-Panel-Connector-Metal-Female-Socket-Male-Plug-Set/184234985847?hash=item2ae542c977:g:9nkAAOSwb5lehCxF
+    - [ ] $4/5x usb type a https://www.aliexpress.com/item/32745824214.html
+    - [ ] $8/10x usb type c https://www.aliexpress.com/item/4000541100627.html
+    - [ ] $3 lighter (local)
+    - [ ] $5 atx pin removal tool https://www.mnpctech.com/products/atx-pin-removal-tool
+    - [ ] atx pins
+    - [ ] atx pin headers
+    - [ ] $25 atx pin crimper https://www.amazon.com/dp/B00OMMZ502/ref=cm_sw_r_cp_api_i_48yvEbJYTKW7H
+    - [ ] 16 awg wire
+    - [ ] pins/headers for custom corsair fan cables
+    - [ ] some advice https://www.reddit.com/r/PCSleeving/comments/ax3g2p/advice_on_my_makeshift_aliexpress_sleeving_kit/

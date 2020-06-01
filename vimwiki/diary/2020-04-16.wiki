@@ -1,0 +1,48 @@
+= Thursday =
+
+- [ ] mechanics of materials
+	- [ ] record discontinuity function lecture
+	- [ ] record superposition lecture
+ 
+- [o] damage tolerance
+	- [X] grade homework 6
+	- [X] check that exam posted
+	- [X] live lecture
+	- [ ] grade homework 7
+	- [ ] change project due date to May 14
+ 
+- [.] research
+	- [X] flux trial license
+	- [ ] do example in flux
+	- [ ] journal for khadija
+	- [ ] research expertise ppt slides for jan
+	- [ ] quarterly masc report
+	- [ ] reach out to Jay
+	- [ ] check up on Christopher
+	- [ ] check in with Kaleb
+	- [ ] outline paper with Adrian's work -- email him?
+ 
+- [ ] service
+	- [ ] search email for all abet-related communication, save to special folder
+	- [ ] email committee about current status of course material, update tracker accordingly
+	- [ ] ask scott about abet deadlines (virtual visit?)
+ 
+- [o] other
+	- [X] work email in mutt
+	- [ ] reviewers for dossier
+ 
+- [.] home
+	- [X] disassemble treadmill
+	- [X] make box for chicks
+	- [X] pick up chicks
+	- [ ] return bike rack
+	- [ ] solder and flash cc2531 chip
+	- [ ] sell jamis bike
+	- [ ] sell specialized bike
+	- [ ] finish sprinkler controller
+	- [ ] finish calvin's workbench
+	- [ ] plant grass seed
+	- [ ] clean and sell rusty saws
+	- [ ] clean workshop
+	- [ ] diy thermostat/humidistat
+

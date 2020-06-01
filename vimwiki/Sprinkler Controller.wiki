@@ -1,0 +1,12 @@
+= Sprinkler Controller =
+
+- [X] solder connections
+- [X] adjust/test buck converter voltage
+- [X] wire together
+- [ ] Fix Raspberry Pi gateway
+- [X] solder relay connectors
+- [ ] test relay switches
+- [ ] screw to plywood
+- [X] connect power (2 lines, one 5V usb and one 29v ac)
+- [X] program arduino
+- [ ] program logic in home assistant

@@ -1,0 +1,23 @@
+= Work Stuff =
+
+== Classes ==
+=== [[Mechanics of Materials]] ===
+=== [[Damage Tolerance]] ===
+
+== Research ==
+=== [[Thermoplastic Welding]] ===
+=== [[Sinkholes]] ===
+=== [[Graduate students]] ===
+=== [[Proposals]] ===
+
+== Service ==
+=== [[ABET]] ===
+
+
+= Home Projects =
+== [[Sprinkler Controller]] ==
+== [[Computer desk]] ==
+== [[Saw clean-up]] ==
+== [[Bit brace cleanup]] ==
+== [[Tablesaw fence]] ==
+== [[Bandsaw]] ==

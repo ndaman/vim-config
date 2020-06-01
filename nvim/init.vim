@@ -76,9 +76,13 @@ Plug 'stefandtw/quickfix-reflector.vim'
 " easily interact with tmux
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
 
 " restore vim sessions in tmux
 Plug 'tpope/vim-obsession'
+
+" wiki file for taking notes
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " latex integration
 Plug 'lervag/vimtex'
@@ -96,7 +100,25 @@ let g:vimtex_quickfix_mode = 1
 
 call plug#end()
 
+set nocompatible
 filetype plugin on
+" vimwiki settings
+" insert mode table mappings
+" this code executes in vimwiki's
+"if str2nr(vimwiki#vars#get_global('key_mappings').table_mappings)
+"  inoremap <expr><buffer> <Tab> vimwiki#tbl#kbd_tab()
+"  inoremap <expr><buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
+"endif
+
+inoremap <expr><buffer> <C-Tab> vimwiki#tbl#kbd_tab()
+let g:vimwiki_list = [{'path': '~/vim-config/vimwiki/', 
+			\ 'path_html': '~/vim-config/vimwiki/html/',
+			\ 'ext': '.wiki'}]
+au FileType vimwiki setlocal shiftwidth=2 tabstop=2 expandtab
+let g:vimwiki_key_mappings = {
+			\'table_format': 0,
+			\'table_mappings': 0
+			\}
 
 " set colorscheme
 set termguicolors
@@ -284,9 +306,12 @@ map F <Plug>Sneak_S
 " general use shortcuts
 let mapleader=","
 let maplocalleader=","
+set timeoutlen=500
 " save
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :wq<cr>
+" this is dangerous, but I always find myself needing to close read-only
+" buffers and this will make that easier
+nnoremap <leader>q :q<cr>
 " replace word under cursor
 nnoremap <leader>f :%s/\<<c-r><c-w>\>//g<left><left>
 " move lines up or down
@@ -328,3 +353,24 @@ nnoremap <leader>p :source ~/sessions/
 
 " git add current file and start commit
 nnoremap <leader>a :Gwrite<bar>Gcommit -m
+
+" live feedback for substitute commands
+set icm=nosplit
+
+" open urls from wsl
+let g:netrw_browsex_viewer="cmd.exe /C start"
+
+if has('wsl') 
+	let g:clipboard = { 
+				\ 'name': 'wslclipboard', 
+				\ 'copy': { 
+					\ '+': '/mnt/c/Tools/win32yank-x64/win32yank.exe -i --crlf', 
+					\ '*': '/mnt/c/Tools/win32yank-x64/win32yank.exe -i --crlf', 
+				\ }, 
+				\ 'paste': { 
+					\ '+': '/mnt/c/Tools/win32yank-x64/win32yank.exe -o --lf', 
+					\ '*': '/mnt/c/Tools/win32yank-x64/win32yank.exe -o --lf', 
+				\ }, 
+				\ 'cache_enabled': 1, 
+				\ } 
+endif 

@@ -34,3 +34,29 @@ alias ls='ls --color=auto'
 
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# fish-style autocomplete
+source ~/vim-config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# shift-tab to accept completion
+bindkey '^[[Z' autosuggest-execute
+
+# open urls in firefox
+export BROWSER='/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
+
+# fzf to kill processes
+fkill() {
+    local pid 
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi  
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi  
+}
+
+# launch xserver when wsl opens
+#"/mnt/c/Users/Nick/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/config.xlaunch" > /dev/null 2>&1 &

@@ -1,0 +1,147 @@
+= Thursday =
+
+- [.] research
+  - [X] initial induction model ( mon )
+	- [ ] journal for khadija ( mon )
+	- [ ] outline paper with Adrian's work ( mon )
+  - [ ] outline paper with Kaleb's work ( mon )
+ 
+- [ ] ABET
+  - [ ] "physical visit" will be remote
+  - [ ] need a really good self-study
+  - [ ] course coordinators update syllabi
+  - [ ] computer tools: replace CFD with specific tool in 524?
+ 
+- [.] service
+	- [ ] search email for all abet-related communication, save to special folder (fri)
+	- [ ] email committee about current status of course material, update tracker accordingly
+	- [ ] ask scott about abet deadlines (virtual visit?)
+ 
+- [ ] mutt
+  - [ ] decide: mu or notmuch indexing?
+    - [ ] mu: folders (easier to sync)
+    - [ ] notmuch: tags (not easy ot sync)
+	- [ ]	contacts: notmuch autocomplete? something similar for mu?
+	- [ ] move configs w/ non-sensitive information to git
+	- [ ] pass from command line?
+	
+
+- [.] 3D printing
+  - [X] level bed
+  - [ ] pressure advance
+  - [ ] new hero me fan duct
+  - [o] microscope
+    - [o] printed parts
+      - [X] microscope main base ( failed at 100 mm/s, printing again at 75 mm/s )
+      - [X] illumination dovetail ( also failed at 100 mm/s, retry at 75 mm/s )
+      - [ ] solder header pins to pi
+      - [ ] solder led w/ wires
+      - [ ] design and print stand
+  - [ ] saw file angle set tool
+  - [ ] sanding strip https://www.thingiverse.com/thing:2404850
+  - [ ] flying turtle https://www.thingiverse.com/thing:3758189/comments
+  - [ ] remote mounts
+  - [ ] pegboard inserts
+  - [ ] electronics vise
+  - [ ] built-in hero me attachment for bfptouch?
+  - [ ] vinyl cutter attachment?: https://www.thingiverse.com/thing:3887386
+  - [ ] pen holder attachment?: https://www.thingiverse.com/thing:3439597
+ 
+- [ ] house projects
+  - [ ] finish drip line ( saturday )
+    - [ ] flush drip line mains
+    - [ ] connect 1/2" tubing
+    - [ ] order adapters (3x)
+  - [ ] patch sheetrock in basement ( next week )
+  - [ ] home assistant
+    - [ ] automate sprinklers ( rain ) https://community.home-assistant.io/t/smart-sprinkler-automation-skip-watering-if-there-is-rain-in-next-48-hours-2-days/123789
+    - [ ] configure remote access ( duckdns )
+    - [ ] thermostat
+  - [ ] clean back gutters ( after grass is ready )
+    - [ ] install gutter guard
+  - [ ] make melina's new bed
+    - [ ] https://www.ikea.com/us/en/p/brimnes-daybed-frame-with-2-drawers-white-40228708/
+    - [ ] http://doityourselffurniture.com/pull-out-daybed/
+    - [ ] https://www.houzz.com/pvp/melody-twin-to-king-extendable-trundle-daybed-with-storage-drawers-white-prpv-pv~105847302?m_refid=PLA_HZ_105847302_9843381072&device=m&nw=u&gclid=CjwKCAjwqdn1BRBREiwAEbZcRwY5RRYHvEgdWNpzowo5us7SrPl3eyt4iu2zobyiNqtMbuy9D63fjhoCZ-MQAvD_BwE
+ 
+- [.] workshop projects
+  - [o] Calvin's toys ( all week )
+    - [O] tic tac toe
+      - [ ] finish/color dowels
+      - [ ] cut dowels again, sand them to be narrower
+    - [o] rubber band gun
+      - [ ] cut handle
+      - [ ] plane and glue barrels
+    - [ ] chinese checkers
+  - [O] my new desk ( wed )
+   - [ ] have home depot trim long legs ( next week )
+  - [ ] clean miter table ( sat )
+    - [ ] pegboard for tools
+    - [ ] more shelving?
+  - [ ] table saw fence ( next week )
+    - [ ] router table extension
+    - [ ] safety/paddle switch
+  - [ ] build saw buck for chainsaw cutting logs ( next saturday )
+  - [ ] bandsaw clean-up
+    - [ ] remove and clean table
+    - [ ] remove blade and check wheel bearings and tires
+      - [ ] top bearings are golden, tires are ok, could be replaced, same with bottom bearings
+      - [ ] 7323dc bearing
+    - [ ] reinstall wheels and blade, check tension and tracking
+    - [ ] check bearings on blade guides, adjust
+    - [ ] reinstall table, check for square
+    - [ ] safety/paddle switch
+    - [ ] build fence ( based on tablesaw fence )
+    - [ ] stabilizer? ( $80 ) https://www.carterproducts.com/band-saw-products/band-saw-stabilizer/standard-model-1-std1
+    - [ ] diy quick release tension? https://www.lumberjocks.com/Blake/blog/3381
+  - [ ] saw till https://www.instructables.com/id/Saw-Rack/
+  - [ ] clean saws
+  - [ ] clean brace & bits
+  - [ ] table saw cleanup https://www.youtube.com/watch?v=pT8ByRTzO6M
+  - [ ] lathe grinder? / grinder station
+  - [ ] mini table saw sled https://ibuildit.ca/projects/making-a-mini-table-saw-sled-deluxe-version/
+  - [ ] air tools rack https://www.youtube.com/watch?v=WbZkqSSa8Wk
+  - [ ] leg vise
+  - [ ] lathe chisels
+  - [ ] plane clean-up
+  - [ ] magnetic saw guide https://www.youtube.com/watch?v=TCm7C_1FTNw
+  - [ ] dust collector
+  - [ ] drill press table
+ 
+- [ ] future
+  - [ ] update sprinkler controller with retain: true for all publish events
+    - [ ] can fix from shell (still need to upload to esp module for more permanent fix)
+    - [ ] also add ota software update
+  - [ ] solder and flash cc2531 chip
+    - [ ] https://www.zigbee2mqtt.io/information/windows.html
+    - [ ] flashing seemed to go well, but it is currently not working on the Pi
+    - [ ] I woud like to get a new raspberry pi to run the alarmdecoder and the cc2531
+    - [ ] probably needs a better power supply
+  - [ ] clean workshop
+  - [ ] diy thermostat/humidistat
+    
+- [ ] exercise
+	- [ ] golden cheetah
+  - [ ] ftp test https://www.trainingpeaks.com/blog/the-physiology-of-ftp-and-new-testing-protocols/
+  - [ ] time trials http://competitorschoicetimingspecialist.com/results/2020/KCTT/KCTT2020.html
+  - [ ] crits https://www.facebook.com/WednesdayNightWorlds1/?eid=ARCI1yKYl6Gv-Yk32xVRBjdEHuUeimS3fY1fVwwH_HwBeXshyqlkKkCpOz23f7gNKVmvhXLRc5Z1WViI&hc_ref=ARSWk6Yf0lcGijsH94It7QJlTxik8iPliNEBbLt-JGTAs4r1FqrRucWBPKO8vTK3Png&fref=nf&hc_location=group
+  
+- [ ] sleeving ( buy supplies and sell fancy cables AFTER I'm done cleaning up saws )
+  - [ ] ($30 for a single diy usb cable kit) https://zapcables.com/diy-detachable-usb-cable-kit/
+    - [ ] cruz ctl also has a page
+  - [ ] full diy ( usb + pc sleeving )
+    - [ ] $5/100ft paracord https://www.aliexpress.com/item/32697322289.html?trace=wwwdetail2mobilesitedetail
+    - [ ] $18/100ft techflex https://www.ebay.com/itm/1-8-Techflex-PTN0-13-Braided-Expandable-Sleeving-PET-10ft-25ft-50ft-100ft-/350705113934
+    - [ ] $30/100ft usb cable (24 awg) (mouser)
+    - [ ] $8/5x gx16 connector https://www.ebay.com/itm/US-5-Pairs-GX16-4-Pin-Aviation-Panel-Connector-Metal-Female-Socket-Male-Plug-Set/184234985847?hash=item2ae542c977:g:9nkAAOSwb5lehCxF
+    - [ ] $5/1x yc8 connector https://www.aliexpress.com/item/32861105223.html?spm=a2g0o.productlist.0.0.74ed10a1IZgmHc&algo_pvid=f088ab3e-2281-485c-9236-f496bb1d9d64&algo_expid=f088ab3e-2281-485c-9236-f496bb1d9d64-0&btsid=0ab6fab215887103030231527e2f87&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_
+    - [ ] $4/5x usb type a https://www.aliexpress.com/item/32745824214.html
+    - [ ] $8/10x usb type c https://www.aliexpress.com/item/4000541100627.html
+    - [ ] $3 lighter (local)
+    - [ ] $5 atx pin removal tool https://www.mnpctech.com/products/atx-pin-removal-tool
+    - [ ] atx pins
+    - [ ] atx pin headers
+    - [ ] $25 atx pin crimper https://www.amazon.com/dp/B00OMMZ502/ref=cm_sw_r_cp_api_i_48yvEbJYTKW7H
+    - [ ] 16 awg wire
+    - [ ] pins/headers for custom corsair fan cables
+    - [ ] some advice https://www.reddit.com/r/PCSleeving/comments/ax3g2p/advice_on_my_makeshift_aliexpress_sleeving_kit/
