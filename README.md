@@ -2,6 +2,12 @@
 
 I wanted to centralize my vim config settings and any other installation instructions so that I can more easily keep things consistent. I will also keep track of things to improve to make the process easier.
 
+## wsl setup
+1. Check windows 10 version, for >2004 we can set up wsl 2
+  1. follow instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+2. install arch from bootstrap per [these](https://www.reddit.com/r/bashonubuntuonwindows/comments/gxbufo/running_arch_on_wsl_from_the_source_images_the/) instructions
+3. install packages in pkglist.txt
+
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
 2. Install git

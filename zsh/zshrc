@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -19,24 +12,23 @@ zstyle :compinstall filename '/home/nick/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export LS_COLORS="$(vivid generate molokai)$"
 
-# used for cross-platform copy/paste
-export DISPLAY=:0
+# used for cross-platform copy/paste ( not needed with windows terminal )
+# export DISPLAY=:0
 
 # make ls pretty
 alias ls='ls --color=auto'
+# shortcut to yayfzf and pacfzf
+alias yf=yayfzf
+alias pf=pacfzf
 
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # fish-style autocomplete
-source ~/vim-config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # shift-tab to accept completion
 bindkey '^[[Z' autosuggest-execute
 
