@@ -18,6 +18,7 @@ man-db
 neovim
 neovim-plug-git
 nodejs
+npm
 patch
 pkgconf
 platformio

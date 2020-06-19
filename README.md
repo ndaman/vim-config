@@ -6,8 +6,36 @@ I wanted to centralize my vim config settings and any other installation instruc
 1. Check windows 10 version, for >2004 we can set up wsl 2
   1. follow instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 2. install arch from bootstrap per [these](https://www.reddit.com/r/bashonubuntuonwindows/comments/gxbufo/running_arch_on_wsl_from_the_source_images_the/) instructions
-3. install packages in pkglist.txt
-
+3. install (non AUR) packages in pkglist.txt with
+```
+pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+```
+4. add user with sudo permissions
+```
+useradd -m -G wheel -s /usr/sbin/zsh nick
+```
+  1. modify sudoers to include wheel group, uncomment line near end
+  ```
+  EDITOR=nvim visudo
+  ```
+  2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
+5. install [yay](https://github.com/Jguer/yay)
+  1. install foreign packages from list (may need to su to new user first)
+  ```
+  yay -S --needed - < pkglist.txt 
+  ```
+6. setup zsh
+``` 
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+```
+7. setup tmux
+  1. clone tmux package manager
+  ```
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ```
+  2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
+  3. prefix + I to install plugins (C-b then I)
+ 
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
 2. Install git
@@ -25,13 +53,13 @@ pip3 install pynvim
 6. Install fzf binary (`choco install fzf`)
 7. Install ripgrep (`choco install ripgrep`)
 8. Install [source code pro font](https://github.com/adobe-fonts/source-code-pro)
-9. Edit init.vim so it reads
+9. Edit init.vim so it reads (~/.config/nvim/init.vim) (first 2 lines not needed in linux)
 ```
 let g:python3_host_prog = '/path/to/python3'
 let g:python_host_prog = '/path/to/python2'
 source /path/to/vim-config/init.vim
 ```
-10. Edit ginit.vim
+10. Edit ginit.vim (not needed if using console)
 ```
 source /path/to/vim-config/ginit.vim
 ```
