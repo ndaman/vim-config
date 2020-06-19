@@ -1,5 +1,0 @@
-neovim-plug-git
-platformio
-python-pynvim-git
-yay
-zsh-theme-powerlevel10k-git
