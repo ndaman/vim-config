@@ -23,6 +23,7 @@ alias ls='ls --color=auto'
 # shortcut to yayfzf and pacfzf
 alias yf=yayfzf
 alias pf=pacfzf
+alias gitu='git add . && git commit && git push'
 
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
