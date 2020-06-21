@@ -23,6 +23,12 @@ patch
 pkgconf
 platformio
 python-pynvim-git
+python-evdev
+python-matplotlib
+python-numpy
+python-pandas
+python-pandas-datareader
+python-scipy
 ripgrep
 sudo
 syncthing
