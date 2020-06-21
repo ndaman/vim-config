@@ -4,6 +4,16 @@ HISTSIZE=1000
 SAVEHIST=10000
 setopt notify
 unsetopt beep
+setopt correct                                                  # Auto correct mistakes
+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob                                               # Case insensitive globbing
+setopt rcexpandparam                                            # Array expension with parameters
+setopt nocheckjobs                                              # Don't warn about running processes when exiting
+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+setopt nobeep                                                   # No beep
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt autocd                                                   # if only directory path is entered, cd there.
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -13,10 +23,20 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 export LS_COLORS="$(vivid generate molokai)$"
 
 # used for cross-platform copy/paste ( not needed with windows terminal )
 # export DISPLAY=:0
+
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 # make ls pretty
 alias ls='ls --color=auto'
