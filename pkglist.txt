@@ -11,6 +11,8 @@ fzf
 gcc
 git
 groff
+ipython
+jupyter
 libtool
 m4
 make
@@ -22,14 +24,15 @@ npm
 patch
 pkgconf
 platformio
-python-pynvim-git
 python-evdev
 python-matplotlib
 python-numpy
 python-pandas
 python-pandas-datareader
+python-pynvim-git
 python-scipy
 ripgrep
+sc-im
 sudo
 syncthing
 systemd

@@ -44,6 +44,10 @@ alias ls='ls --color=auto'
 alias yf=yayfzf
 alias pf=pacfzf
 alias gitu='git add . && git commit && git push'
+# pacbak to backup pacman installed packages
+alias pacbak='pacman -Qqe > ~/vim-config/pkglist.txt'
+# pacrst to restore/install packages from list
+alias pacrst='yay -S --needed - < ~/vim-config/pkglist.txt'
 
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
