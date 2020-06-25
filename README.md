@@ -5,6 +5,7 @@ I wanted to centralize my vim config settings and any other installation instruc
 ## wsl setup
 1. Check windows 10 version, for >2004 we can set up wsl 2
   1. follow instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+  2. install windows terminal, edit settings to remove ctl-c and ctl-v bindings
 2. install arch from bootstrap per [these](https://www.reddit.com/r/bashonubuntuonwindows/comments/gxbufo/running_arch_on_wsl_from_the_source_images_the/) instructions
 3. install (non AUR) packages in pkglist.txt with
 ```
