@@ -111,3 +111,14 @@ Split LS-DYNA plugin into separate files and modify them. One for Deoplete autoc
 coc.nvim causes some very annoying delays when I'm working on LS-DYNA files. I think this is related to the omnifunc completion?
 
 I would like to transition from using coc.nvim to the new built-in lsp [link](https://github.com/neovim/nvim-lsp)
+
+## bluetooth controllers
+```
+sudo systemctl start bluetooth
+sudo bluetoothctl
+power on
+scan on
+pair <MAC>
+trust <MAC>
+connect <MAC>
+```
