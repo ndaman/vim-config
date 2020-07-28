@@ -3,9 +3,10 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 " Switch to coc.nvim completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " CocInstall coc-snippets
-" CocInstall coc-vimtex
+" CocInstall coc-texlab
 " CocInstall coc-dictionary
 " CocInstall coc-tsserver coc-json
+" CocInstall coc-python
 
 " common snippets
 Plug 'honza/vim-snippets'
@@ -77,6 +78,7 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+let g:slime_python_ipython = 1
 
 " restore vim sessions in tmux
 Plug 'tpope/vim-obsession'
@@ -89,7 +91,7 @@ Plug 'lervag/vimtex'
 " remotely control neovim, needed for some vimtex features
 Plug 'mhinz/neovim-remote'
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_general_viewer = 'SumatraPDF'
+let g:vimtex_view_general_viewer = 'mupdf.exe'
 let g:vimtex_view_general_options
 	\ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
@@ -102,13 +104,6 @@ call plug#end()
 
 set nocompatible
 filetype plugin on
-" vimwiki settings
-" insert mode table mappings
-" this code executes in vimwiki's
-"if str2nr(vimwiki#vars#get_global('key_mappings').table_mappings)
-"  inoremap <expr><buffer> <Tab> vimwiki#tbl#kbd_tab()
-"  inoremap <expr><buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
-"endif
 
 inoremap <expr><buffer> <C-Tab> vimwiki#tbl#kbd_tab()
 let g:vimwiki_list = [{'path': '~/vimwiki/', 
@@ -119,6 +114,9 @@ let g:vimwiki_key_mappings = {
 			\'table_format': 0,
 			\'table_mappings': 0
 			\}
+" remove .md files from vimwiki file format
+let g:vimwiki_ext2syntax = {'.wiki': 'media'}
+let g:vimwiki_global_ext = 0
 
 " set colorscheme
 set termguicolors
