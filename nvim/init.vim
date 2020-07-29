@@ -286,8 +286,8 @@ set laststatus=2
 " code highlighting for other languages inside markdown
 let g:markdown_fenced_languages = ['html', 'css', 'python', 'bash=sh', 'tex']
 
-" replace all span titles
-nmap <C-t> :%s!<span>\(.*\)</span>!----\r## \1!g<CR>
+" auto-replace some common items needed after converting tex to md with pandoc
+nmap <C-t> :%s!<span>\(.*\)</span>!----\r## \1!e <bar> %s/\\(/`\\(/e <bar> %s/\\)/\\)`/e <bar> %s/\\\[/`\\\[/e <bar> %s/\\\]/\\\]`/e <CR>
 
 " shortcuts for aligning tables with tabular
 if exists(":Tabularize")
