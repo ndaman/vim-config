@@ -31,7 +31,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " simple project browser
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+" better file browser
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do':':UpdateRemotePlugins'}
 
 " some git functions, crystalline uses it
 Plug 'tpope/vim-fugitive'
@@ -167,13 +169,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " let NERDTree take over netrw (default folder navigation)
-let g:NERDTreeHijackNetrw=1
+" let g:NERDTreeHijackNetrw=1
 " map NERDTree toggle
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+map <C-n> <cmd>CHADopen<CR>
+
 " ignore filetypes in NERDTree
-let g:NERDTreeIgnore=['\.xdv$','\.fdb_latexmk$','\.fls$', '\.pdf$','\.aux$','\.gz$','\.nav$','\.out$','\.snm$','\.md5$']
+" let g:NERDTreeIgnore=['\.xdv$','\.fdb_latexmk$','\.fls$', '\.pdf$','\.aux$','\.gz$','\.nav$','\.out$','\.snm$','\.md5$']
 " quit nerdtree on file open
-let NERDTreeAutoDeleteBuffer = 1
+" let NERDTreeAutoDeleteBuffer = 1
 
 " customize markdown toc
 nnoremap <C-g> :GenTocGFM<CR>
