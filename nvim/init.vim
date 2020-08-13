@@ -101,6 +101,7 @@ let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_compiler_latexmk = { 'options' : [ '-shell-escape' ] }
 let g:vimtex_compiler_latexmk_engines = { '_' : '-xelatex' }
 let g:vimtex_quickfix_mode = 1
+let g:tex_flavor = 'latex'
 
 call plug#end()
 
