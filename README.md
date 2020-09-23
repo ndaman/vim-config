@@ -80,7 +80,7 @@ ln -s /path/to/vim-config/ultisnips ~/.config/coc/
 ```
 cmd /c mklink /D ~/AppData/Local/nvim/ftdetect /path/to/vim-config/ftdetect
 ``` 
-13. symlink default.beamer to ~/.pandoc/templates/default.latex and default.beamer (for autogeneration of pdf notes)
+13. symlink default.latex to ~/.pandoc/templates/default.latex (for autogeneration of pdf notes), use style.yaml in notes folder and use command pandoc style.yaml input.pandoc -t beamer -o slides.pdf to build
 
 some more work is needed to edit the lsdyna plugin to avoid having it overwrite the default colorscheme
 

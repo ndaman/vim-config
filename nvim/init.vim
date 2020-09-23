@@ -15,6 +15,13 @@ Plug 'honza/vim-snippets'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" pandoc settings
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" markdown live preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': [ 'markdown', 'vim-plug' ] }
+
 " Improved motion in Vim
 Plug 'justinmk/vim-sneak'
 
@@ -102,6 +109,9 @@ let g:vimtex_compiler_latexmk = { 'options' : [ '-shell-escape' ] }
 let g:vimtex_compiler_latexmk_engines = { '_' : '-xelatex' }
 let g:vimtex_quickfix_mode = 1
 let g:tex_flavor = 'latex'
+
+" moose framework syntax highlighting
+Plug 'elementx54/moosefw_vim'
 
 call plug#end()
 
@@ -377,3 +387,15 @@ if has('wsl')
 				\ 'cache_enabled': 1, 
 				\ } 
 endif 
+
+" markdown preview config
+" let g:mkdp_open_to_the_world = 1
+let g:mkdp_browser = 'wslview'
+
+" pandoc settings
+let g:pandoc#biblio#sources = 'bclyG'
+let g:pandoc#completion#bib#mode = 'fallback'
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#filetypes#handled = ['pandoc']
+let g:pandoc#modules#disabled = ["folding"]
+" for autocomplete, use *.bib library files and coc-bibtex
