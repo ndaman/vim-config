@@ -1,0 +1,6 @@
+virtual-mailboxes "inbox" "notmuch://?query=tag:inbox"
+virtual-mailboxes "homework" "notmuch://?query=tag:homework"
+virtual-mailboxes "research" "notmuch://?query=tag:research"
+virtual-mailboxes "department" "notmuch://?query=tag:department"
+virtual-mailboxes "sent" "notmuch://?query=tag:sent"
+virtual-mailboxes "archive" "notmuch://?query=tag:archive"

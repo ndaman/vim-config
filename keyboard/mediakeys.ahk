@@ -1,27 +1,18 @@
 ; 1. check for vlc, send keys if it exists
 ; https://gist.github.com/vaindil/a223fe82ec2122e02bf0062c82a20186
-; 2. check for amazon music tab, send keys if it exists
-; 3. check for youtube music tab, send keys if it exists
-; 4. check for spotify tab, send keys if it exists
-; 5. send global media key otherwise
+; 2. send global media key otherwise
 ; global media keys were not working in VLC, so I switched to controlsend
-
-; library for getting tab names
-#Include firefox_youtube_media_keys.ahk 
 
 ; mouse keys for music
 +XButton1::
-	Send {Media_Prev}
 	prev()
 return
 ; XButton2 = forward
 +XButton2::
-	Send {Media_Next}
 	next()
 return
 ; MButton
 +MButton::
-	Send {Media_Play_Pause}
 	playPause()
 return
 
@@ -34,15 +25,12 @@ return
 ; keyboard controls
 ; ctl + alt + key
 ^!Space::
-	Send {Media_Play_Pause}
 	playPause()
 return
 ^!Left::
-	Send {Media_Prev}
 	prev()
 return
 ^!Right::
-	Send {Media_Next}
 	next()
 return
 
@@ -59,7 +47,7 @@ if WinExist("ahk_exe vlc.exe")
 	ControlSend,,p,ahk_id %vlc_id%
 	}
 else 
-	HandleKey("p")
+	Send {Media_Prev}
 }
 
 next()
@@ -69,7 +57,7 @@ next()
 	ControlSend,,n,ahk_id %vlc_id%
 	}
 else
-	HandleKey("n")
+	Send {Media_Next}
 }
 
 playPause()
@@ -79,5 +67,5 @@ playPause()
 	ControlSend,,{Space},ahk_id %vlc_id%
 	}
 else
-	HandleKey("s")
+	Send {Media_Play_Pause}
 }

@@ -113,6 +113,9 @@ let g:tex_flavor = 'latex'
 " moose framework syntax highlighting
 Plug 'elementx54/moosefw_vim'
 
+" notmuch.vim 
+Plug 'felipec/notmuch-vim'
+
 call plug#end()
 
 set nocompatible
@@ -399,3 +402,5 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#filetypes#handled = ['pandoc']
 let g:pandoc#modules#disabled = ["folding"]
 " for autocomplete, use *.bib library files and coc-bibtex
+
+" notmuch vim settings

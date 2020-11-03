@@ -105,6 +105,25 @@ make init
 The ```make init``` command should generate the correct ```compile_commands.json``` file for clangd to use and find the appropriate libraries/includes.
 4. looks for src/main.cpp to find setup() and loop() functions.
 
+## Email in wsl
+1. This is still a WIP, but I wanted better e-mail searching capabilities, so I am working to use notmuch following [these](https://jonathanh.co.uk/blog/mutt-setup.html) instructions.
+2. symlink the files from the email directory
+```
+mkdir ~/.config/davmail
+mkdir ~/.config/isync
+ln -s /path/to/vim-config/email/davmail.properties ~/.config/davmail/davmail.properties
+ln -s /path/to/vim-config/email/mbsyncrc ~/.config/isync/mbsyncrc
+```
+3. start davmail
+```
+davmail ~/.config/davmail/davmail.properties
+```
+4. start mbsync
+```
+mbsync -c ~/.config/isync/mbsyncrc wsu
+```
+5. tbd, set up notmuch, neomutt, neovim, etc.
+
 ## TODO
 
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets

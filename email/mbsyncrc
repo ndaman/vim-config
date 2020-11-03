@@ -1,0 +1,22 @@
+IMAPAccount wsu
+Host 127.0.0.1
+Port 1143
+User a723k873
+Pass juLfYOMmyoAMr1Wo
+SSLType None
+AuthMechs LOGIN
+
+IMAPStore wsu-remote
+Account wsu
+
+MaildirStore wsu-local
+Subfolders Verbatim
+Path /mnt/e/Syncthing/Mail/
+Inbox /mnt/e/Syncthing/Mail/Inbox
+
+Channel wsu
+Master :wsu-remote:
+Slave :wsu-local:
+Patterns *
+Create Both
+SyncState *

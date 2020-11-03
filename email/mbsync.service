@@ -1,0 +1,8 @@
+[Unit]
+Description=Mailbox synchronization services
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -Va -c /home/nick/.config/isync/mbsyncrc
+ExecStartPost=/usr/bin/notmuch new
+ExecStartPost=/home/nick/.scripts/notmuch-hook.sh

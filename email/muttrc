@@ -1,0 +1,32 @@
+set folder = "/mnt/e/Syncthing/Mail"
+set mbox_type = Maildir
+set spoolfile = +Inbox
+set record = +Sent
+set postponed = +Drafts
+set header_cache = ~/.cache/mutt
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+set date_format = "%y/%m/%d %I:%M%p"
+
+set mailcap_path = "~/.cache/mutt/mailcap"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+set smtp_url = "smtp://a723k873:juLfYOMmyoAMr1Wo@127.0.0.1:1025"
+
+set editor = "nvim +':set textwidth=0'"
+
+set from = "Dr. Nick Smith <Nicholas.A.Smith@wichita.edu>"
+
+bind index N search-opposite
+
+# notmuch settings
+set nm_default_url = "notmuch://mnt/e/Syncthing/Mail"
+set nm_query_type = "threads"
+bind index \\ vfolder-from-query
+# source ./mailboxes
+
+# dracula theme
+source ./mutt/dracula.muttrc
