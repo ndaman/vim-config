@@ -403,4 +403,5 @@ let g:pandoc#filetypes#handled = ['pandoc']
 let g:pandoc#modules#disabled = ["folding"]
 " for autocomplete, use *.bib library files and coc-bibtex
 
-" notmuch vim settings
+" notmuch address book
+
