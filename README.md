@@ -106,14 +106,16 @@ The ```make init``` command should generate the correct ```compile_commands.json
 4. looks for src/main.cpp to find setup() and loop() functions.
 
 ## Email in wsl
+
 1. This is still a WIP, but I wanted better e-mail searching capabilities, so I am working to use notmuch following [these](https://jonathanh.co.uk/blog/mutt-setup.html) instructions.
 2. symlink the files from the email directory
 ```
 mkdir ~/.config/davmail
 mkdir ~/.config/isync
 ln -s /path/to/vim-config/email/davmail.properties ~/.config/davmail/davmail.properties
-ln -s /path/to/vim-config/email/mbsyncrc ~/.config/isync/mbsyncrc
+cp /path/to/vim-config/email/mbsyncrc ~/.config/isync/mbsyncrc
 ```
+will probably need to change paths in mbsyncrc
 3. start davmail
 ```
 davmail ~/.config/davmail/davmail.properties
@@ -122,7 +124,9 @@ davmail ~/.config/davmail/davmail.properties
 ```
 mbsync -c ~/.config/isync/mbsyncrc wsu
 ```
-5. tbd, set up notmuch, neomutt, neovim, etc.
+5. set up msmtp to send email, copy msmtprc to .msmtprc or on gentoo /etc/msmtprc
+6. set up notmuch
+7. alot is currently working best for me to integrate with notmuch
 
 ## TODO
 
