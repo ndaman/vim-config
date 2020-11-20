@@ -2,7 +2,7 @@ IMAPAccount wsu
 Host 127.0.0.1
 Port 1143
 User a723k873
-Pass juLfYOMmyoAMr1Wo
+Pass secret
 SSLType None
 AuthMechs LOGIN
 
