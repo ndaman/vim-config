@@ -16,9 +16,9 @@ I wanted to centralize my vim config settings and any other installation instruc
 pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
 ```
 4. add user with sudo permissions
-```
-useradd -m -G wheel -s /usr/sbin/zsh nick
-```
+    ```
+    useradd -m -G wheel -s /usr/sbin/zsh nick
+    ```
     1. modify sudoers to include wheel group, uncomment line near end
     ```
     EDITOR=nvim visudo
