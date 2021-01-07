@@ -19,27 +19,27 @@ pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
 ```
 useradd -m -G wheel -s /usr/sbin/zsh nick
 ```
-  1. modify sudoers to include wheel group, uncomment line near end
-  ```
-  EDITOR=nvim visudo
-  ```
-  2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
+    1. modify sudoers to include wheel group, uncomment line near end
+    ```
+    EDITOR=nvim visudo
+    ```
+    2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
 5. install [yay](https://github.com/Jguer/yay)
-  1. install foreign packages from list (may need to su to new user first)
-  ```
-  yay -S --needed - < pkglist.txt 
-  ```
+    1. install foreign packages from list (may need to su to new user first)
+    ```
+    yay -S --needed - < pkglist.txt 
+    ```
 6. setup zsh
 ``` 
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 ```
 7. setup tmux
-  1. clone tmux package manager
-  ```
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ```
-  2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
-  3. prefix + I to install plugins (C-b then I)
+    1. clone tmux package manager
+    ```
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ```
+    2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
+    3. prefix + I to install plugins (C-b then I)
  
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
@@ -133,11 +133,8 @@ mbsync -c ~/.config/isync/mbsyncrc wsu
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
 Can this be done in Neomake?
   
-Split LS-DYNA plugin into separate files and modify them. One for Deoplete autocompletion and one for syntax highlighting.
 
 ## Issues
-
-coc.nvim causes some very annoying delays when I'm working on LS-DYNA files. I think this is related to the omnifunc completion?
 
 I would like to transition from using coc.nvim to the new built-in lsp [link](https://github.com/neovim/nvim-lsp)
 
