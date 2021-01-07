@@ -2,11 +2,8 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Switch to coc.nvim completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" CocInstall coc-snippets
-" CocInstall coc-texlab
-" CocInstall coc-dictionary
-" CocInstall coc-tsserver coc-json
-" CocInstall coc-python
+" CocInstall coc-snippets coc-dictionary coc-tsserver coc-json coc-python
+" coc-vimtex
 
 " common snippets
 Plug 'honza/vim-snippets'
@@ -28,7 +25,8 @@ Plug 'justinmk/vim-sneak'
 " auto-close parenthesis etc. plugin
 Plug 'jiangmiao/auto-pairs'
 " add $ to auto-close for latex work
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '$':'$', '$$':'$$'}
+" trying something new for left/right in latex
+let g:AutoPairs = {'\left(':'\right)', '(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '$':'$', '$$':'$$'}
 
 " fancy start page
 Plug 'mhinz/vim-startify'
