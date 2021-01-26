@@ -13,7 +13,7 @@ return packer.startup(function()
 	use {'junegunn/fzf', run = ':fzf#install'}
 	use {'junegunn/fzf.vim'}
 	use {'justinmk/vim-sneak'}
-	use {'cohama/lexima.vim'}
+	use {'windwp/nvim-autopairs'}
 	use {'hoob3rt/lualine.nvim'}
 	use {'kyazdan142/nvim-web-icons'}
 	use {'jremmen/vim-ripgrep'}
@@ -22,6 +22,7 @@ return packer.startup(function()
 	use {'vimwiki/vimwiki', branch='dev' }
 	use {'tpope/vim-obsession'}
 	use {'mhinz/neovim-remote'}
+	use {'ojroques/vim-oscyank'}
 --  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
 	--lsp 
@@ -64,6 +65,3 @@ end)
 -- autogenerate toc
 -- paq {'ndaman/vim-markdown-toc'}
 
--- no longer needed
--- Plug 'neomake/neomake'
--- Plug 'ndaman/vim-lsdyna'

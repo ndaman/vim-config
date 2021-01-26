@@ -74,12 +74,6 @@ g.vimtex_compiler_method = 'latexmk'
 g.vimtex_quickfix_mode = 1
 g.tex_flavor = 'latex'
 
--- add latex equations to lexima autopairs rules
-vim.call('lexima#add_rule', {char='$', input_after='$', filetype='latex, markdown'})
-vim.call('lexima#add_rule', {char='$', at='%#$', leave=1, filetype='latex, markdown'})
-vim.call('lexima#add_rule', {char='<BS>', at='$%#$', delete=1, filetype='latex, markdown'})
-g['deoplete#enable_at_startup'] = 1
-
 local scopes = {o = vim.o, b = vim.bo, w = vim.w}
 
 local function opt(scope, key, value)
@@ -133,8 +127,9 @@ map('n', '<C-o>', ':Buffer<cr>')
 map('n', '<leader>b', ':BLines<cr>')
 map('n', '<leader>r', ':Rg<cr>')
 
-map('n', 'f', '<Plug>Sneak_s')
-map('n', 'F', '<Plug>Sneak_S')
+-- modify command for plugin commands
+vim.api.nvim_set_keymap('n', 'f', '<Plug>Sneak_s', { noremap = false, silent = false  })
+vim.api.nvim_set_keymap('n', 'F', '<Plug>Sneak_S', { noremap = false, silent = false  })
 
 map('n', '<leader>w', ':w<cr>')
 map('n', '<leader>q', ':q<cr>')
@@ -150,6 +145,8 @@ map('n', '<leader>c', ':cd %:p:h<cr>')
 map('n', '<leader>o', ':Obsess ~/sessions/') --save session
 map('n', '<leader>p', ':source ~/sessions/') --restore session
 
+map('v', '<leader>c', ':OSCYank<cr>')
+
 --treesitter config
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable=true}}
@@ -162,6 +159,22 @@ lsp.clangd.setup{}
 lsp.jedi_language_server.setup{}
 lsp.texlab.setup{}
 lspfuzzy.setup{}
+
+--autopairs config
+require('nvim-autopairs').setup({
+  pairs_map = {
+    ["'"] = "'",
+    ['"'] = '"',
+    ['('] = ')',
+    ['['] = ']',
+    ['{'] = '}',
+    ['`'] = '`',
+    ['$'] = '$'
+  }
+})
+
+--oscyank settings
+--probably not needed, but may need to override terminal detection for tmux, [see](https://github.com/ojroques/vim-oscyank)
 
 -- g.netrw_browsex_viewer="cmd.exe /C start" --open urls from wsl
 
