@@ -161,6 +161,7 @@ lsp.texlab.setup{}
 lspfuzzy.setup{}
 
 --deoplete notmuch address search
+g['deoplete#enable_at_startup'] = 1
 g['deoplete#sources#notmuch#command'] = {'notmuch', 'address', '--format=json', '--deduplicate=address', '*'}
 
 --autopairs config
