@@ -4,42 +4,42 @@ I wanted to centralize my vim config settings and any other installation instruc
 
 ## wsl setup
 1. Check windows 10 version, for >2004 we can set up wsl 2
-  1. follow instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-  2. install windows terminal, edit settings to remove ctl-c and ctl-v bindings
-  3. setup git credentials
-  ```
-  git config --global credential.helper '/mnt/c/Program Files/git/mingw64/libexec/git-core/git-credential-manager.exe'
-  ```
+    1. follow instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+    1. install windows terminal, edit settings to remove ctl-c and ctl-v bindings
+    1. setup git credentials
+    ```
+    git config --global credential.helper '/mnt/c/Program Files/git/mingw64/libexec/git-core/git-credential-manager.exe'
+    ```
 2. install arch from bootstrap per [these](https://www.reddit.com/r/bashonubuntuonwindows/comments/gxbufo/running_arch_on_wsl_from_the_source_images_the/) instructions
 3. install (non AUR) packages in pkglist.txt with
 ```
 pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
 ```
 4. add user with sudo permissions
-```
-useradd -m -G wheel -s /usr/sbin/zsh nick
-```
-  1. modify sudoers to include wheel group, uncomment line near end
-  ```
-  EDITOR=nvim visudo
-  ```
-  2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
+    ```
+    useradd -m -G wheel -s /usr/sbin/zsh nick
+    ```
+    1. modify sudoers to include wheel group, uncomment line near end
+    ```
+    EDITOR=nvim visudo
+    ```
+    2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
 5. install [yay](https://github.com/Jguer/yay)
-  1. install foreign packages from list (may need to su to new user first)
-  ```
-  yay -S --needed - < pkglist.txt 
-  ```
+    1. install foreign packages from list (may need to su to new user first)
+    ```
+    yay -S --needed - < pkglist.txt 
+    ```
 6. setup zsh
 ``` 
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 ```
 7. setup tmux
-  1. clone tmux package manager
-  ```
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ```
-  2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
-  3. prefix + I to install plugins (C-b then I)
+    1. clone tmux package manager
+    ```
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ```
+    2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
+    3. prefix + I to install plugins (C-b then I)
  
 ## installation
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
@@ -133,11 +133,8 @@ mbsync -c ~/.config/isync/mbsyncrc wsu
 want to find/edit a plugin so that on keypress (<C-m> possibly) a window pops up with make targets
 Can this be done in Neomake?
   
-Split LS-DYNA plugin into separate files and modify them. One for Deoplete autocompletion and one for syntax highlighting.
 
 ## Issues
-
-coc.nvim causes some very annoying delays when I'm working on LS-DYNA files. I think this is related to the omnifunc completion?
 
 I would like to transition from using coc.nvim to the new built-in lsp [link](https://github.com/neovim/nvim-lsp)
 
