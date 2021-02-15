@@ -28,6 +28,7 @@ return packer.startup(function()
 	--lsp 
 	use {'shougo/deoplete-lsp'}
 	use {'shougo/deoplete.nvim', run = ':remote#UpdateRemotePlugins'}
+  use {'paretje/deoplete-notmuch', ft='mail'}
 	use {'neovim/nvim-lspconfig'}
 	use {'ojroques/nvim-lspfuzzy'}
 	use {'honza/vim-snippets'}
