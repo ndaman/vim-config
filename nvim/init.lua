@@ -160,6 +160,9 @@ lsp.jedi_language_server.setup{}
 lsp.texlab.setup{}
 lspfuzzy.setup{}
 
+--deoplete notmuch address search
+g['deoplete#sources#notmuch#command'] = {'notmuch', 'address', '--format=json', '--deduplicate=address', '*'}
+
 --autopairs config
 require('nvim-autopairs').setup({
   pairs_map = {
