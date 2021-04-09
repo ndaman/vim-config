@@ -14,8 +14,18 @@ return packer.startup(function()
 	use {'junegunn/fzf.vim'}
 	use {'justinmk/vim-sneak'}
 	use {'windwp/nvim-autopairs'}
-	use {'hoob3rt/lualine.nvim'}
-	use {'kyazdan142/nvim-web-icons'}
+	use {'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+      require('lualine').setup{
+        options = {
+          theme = 'onedark',
+          icon_separators = true,
+        },
+        extensions = { 'fzf' }
+      }
+    end
+  }
 	use {'jremmen/vim-ripgrep'}
 	use {'stefandtw/quickfix-reflector.vim'}
 	use {'jpalardy/vim-slime'}

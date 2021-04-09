@@ -44,11 +44,6 @@ local LOCAL_DIR = os.getenv('HOME') .. '/.local/share/nvim-nightly'
 
 -- plugins
 require ('plugins')
--- lua status line
-local lualine = require('lualine')
-lualine.theme = 'onedark'
-lualine.extensions = { 'fzf' }
-lualine.status()
 
 -- ripgrep search command
 g.rg_command = 'rg --vimgrep -S'
@@ -73,6 +68,10 @@ g.vimtex_compiler_method = 'latexmk'
 -- g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
 g.vimtex_quickfix_mode = 1
 g.tex_flavor = 'latex'
+
+-- vimwiki
+-- don't use vimwiki for .md files
+g.vimwiki_global_ext = 0
 
 local scopes = {o = vim.o, b = vim.bo, w = vim.w}
 
