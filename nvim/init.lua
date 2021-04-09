@@ -73,6 +73,10 @@ g.tex_flavor = 'latex'
 -- don't use vimwiki for .md files
 g.vimwiki_global_ext = 0
 
+-- markdown
+-- disable folding
+g.vim_markdown_folding_disabled = 1
+
 local scopes = {o = vim.o, b = vim.bo, w = vim.w}
 
 local function opt(scope, key, value)
