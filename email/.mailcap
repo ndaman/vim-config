@@ -1,2 +1,4 @@
-text/html;  w3m -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput
-application/pdf; mupdf.exe %s
+#text/html;  w3m -v -F -o display_link_number=1 -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput
+text/html; elinks -dump; copiousoutput;
+text/calendar; mutt-ics; copiousoutput;
+application/ics; mutt-ics; copiousoutput;

@@ -7,59 +7,23 @@ local tmux = os.getenv('TMUX') -- needed for vim-slime
 g.python3_host_prog = '/usr/bin/python'
 g.loaded_python_provider = 0
 
--- Pack Path
-cmd 'set packpath-=~/.config/nvim'
-cmd 'set packpath-=~/.config/nvim/after'
-cmd 'set packpath-=~/.local/share/nvim/site'
-cmd 'set packpath-=~/.local/share/nvim/site/after'
-cmd 'set packpath-=/etc/xdg/nvim'
-cmd 'set packpath-=/etc/xdg/nvim/after'
-cmd 'set packpath-=/usr/local/share/nvim/site'
-cmd 'set packpath-=/usr/local/share/nvim/site/after'
-cmd 'set packpath-=/usr/share/nvim/site'
-cmd 'set packpath-=/usr/share/nvim/site/after'
-cmd 'set packpath^=~/.config/nvim-nightly'
-cmd 'set packpath+=~/.config/nvim-nightly/after'
-cmd 'set packpath^=~/.local/share/nvim-nightly/site'
-cmd 'set packpath+=~/.local/share/nvim-nightly/site/after'
-
--- -- Runtime Path
-cmd 'set runtimepath-=~/.config/nvim'
-cmd 'set runtimepath-=~/.config/nvim/after'
-cmd 'set runtimepath-=~/.local/share/nvim/site'
-cmd 'set runtimepath-=~/.local/share/nvim/site/after'
-cmd 'set runtimepath-=/etc/xdg/nvim'
-cmd 'set runtimepath-=/etc/xdg/nvim/after'
-cmd 'set runtimepath-=/usr/share/nvim/site'
-cmd 'set runtimepath-=/usr/share/nvim/site/after'
-cmd 'set runtimepath-=/usr/local/share/nvim/site'
-cmd 'set runtimepath-=/usr/local/share/nvim/site/after'
-cmd 'set runtimepath+=~/.config/nvim-nightly/after'
-cmd 'set runtimepath^=~/.config/nvim-nightly'
-cmd 'set runtimepath+=~/.local/share/nvim-nightly/site/after'
-cmd 'set runtimepath^=~/.local/share/nvim-nightly/site'
-
-local CONFIG_DIR = os.getenv('HOME') .. '/.config/nvim-nightly'
-local LOCAL_DIR = os.getenv('HOME') .. '/.local/share/nvim-nightly'
-
 -- plugins
 require ('plugins')
--- lua status line
-local lualine = require('lualine')
-lualine.theme = 'onedark'
-lualine.extensions = { 'fzf' }
-lualine.status()
+local cmp = require'cmp'
 
 -- ripgrep search command
 g.rg_command = 'rg --vimgrep -S'
 
 -- use slime in tmux panes
-g.slime_target = "tmux"
-g.slime_default_config = {
-	socket_name= string.match(tmux, '(.-),'),
-	target_pane= ":.1"
-}
-g.slime_python_ipython = 1
+-- not using slime anymore
+--g.slime_target = "tmux"
+--g.slime_paste_file = "$HOME/.slime_paste"
+--g.slime_cell_delimiter = '###'
+--g.slime_default_config = {
+--	socket_name= "default",
+--	target_pane= ":0.0"
+--}
+--g.slime_python_ipython = 1
 
 -- remotely control neovim, needed for some vimtex features
 -- g.vimtex_compiler_progname = 'nvr'
@@ -82,7 +46,6 @@ local function opt(scope, key, value)
 end
 
 local indent = 2
-cmd 'colorscheme ayu'
 opt('b', 'expandtab', true)
 opt('b', 'shiftwidth', indent)
 opt('b', 'smartindent', true)
@@ -105,6 +68,8 @@ opt('w', 'wrap', false)
 opt('o', 'timeoutlen', 250)
 opt('o', 'clipboard', 'unnamedplus')
 opt('o', 'icm', 'nosplit')
+--open folds by default
+opt('w', 'foldlevel', 99)
 
 local function map(mode, lhs, rhs, opts)
 	local options = {noremap = true}
@@ -115,8 +80,6 @@ end
 g.mapleader = ","
 g.maplocalleader = ","
 
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
@@ -127,17 +90,15 @@ map('n', '<C-o>', ':Buffer<cr>')
 map('n', '<leader>b', ':BLines<cr>')
 map('n', '<leader>r', ':Rg<cr>')
 
--- modify command for plugin commands
-vim.api.nvim_set_keymap('n', 'f', '<Plug>Sneak_s', { noremap = false, silent = false  })
-vim.api.nvim_set_keymap('n', 'F', '<Plug>Sneak_S', { noremap = false, silent = false  })
+--slime mappings
+map('n', '<leader>cc', '<Plug>SlimeSendCell<cr>')
+map('n', '<leader>cp', '<Plug>SlimeSendParagraph<cr>')
+map('n', '<leader>ci', '<Plug>SlimeConfig<cr>')
 
 map('n', '<leader>w', ':w<cr>')
 map('n', '<leader>q', ':q<cr>')
--- map('n', '<leader>f', ':%s/\<<c-r><c-w>\>//g<left><left>')
 map('n', '<leader>k', ':m-2<cr>==')
 map('n', '<leader>j', ':m+<cr>==')
-
-map('n', '<leader>t', ':execute \'bo vs \' . g:todofile <cr>')
 
 map('n', '<leader>n', ':noh<cr>')
 map('n', '<leader>c', ':cd %:p:h<cr>')
@@ -151,18 +112,79 @@ map('v', '<leader>c', ':OSCYank<cr>')
 local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable=true}}
 
---lsp config
-local lsp = require 'lspconfig'
+--lsp fuzzy config
 local lspfuzzy = require 'lspfuzzy'
-
-lsp.clangd.setup{}
-lsp.jedi_language_server.setup{}
-lsp.texlab.setup{}
 lspfuzzy.setup{}
 
---deoplete notmuch address search
-g['deoplete#enable_at_startup'] = 1
-g['deoplete#sources#notmuch#command'] = {'notmuch', 'address', '--format=json', '--deduplicate=address', '*'}
+--lsp settings
+local nvim_lsp = require 'lspconfig'
+local on_attach = function(_, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+end 
+
+--nvim cmp setup
+cmp.setup({
+  snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    mapping = {
+      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'pandoc_references' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Setup lspconfig.
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- setup individual language servers
+local servers = { 'clangd', 'texlab', 'jedi_language_server' }
+for _, lsp in ipairs{servers} do 
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+end
 
 --autopairs config
 require('nvim-autopairs').setup({
@@ -182,31 +204,42 @@ require('nvim-autopairs').setup({
 
 -- g.netrw_browsex_viewer="cmd.exe /C start" --open urls from wsl
 
--- TODO: fix this stuff
--- if has('wsl') 
--- 	let g:clipboard = { 
--- 				\ 'name': 'wslclipboard', 
--- 				\ 'copy': { 
--- 					\ '+': '/mnt/c/Tools/win32yank-x64/win32yank.exe -i --crlf', 
--- 					\ '*': '/mnt/c/Tools/win32yank-x64/win32yank.exe -i --crlf', 
--- 				\ }, 
--- 				\ 'paste': { 
--- 					\ '+': '/mnt/c/Tools/win32yank-x64/win32yank.exe -o --lf', 
--- 					\ '*': '/mnt/c/Tools/win32yank-x64/win32yank.exe -o --lf', 
--- 				\ }, 
--- 				\ 'cache_enabled': 1, 
--- 				\ } 
--- endif 
-
--- set markdown preview to work in wsl
-g.mkdp_browser = 'wslview'
-
 -- pandoc settings
 g['pandoc#biblio#sources'] = 'bclyG'
 g['pandoc#completion#bib#mode'] = 'fallback'
 g['pandoc#filetypes#pandoc_markdown'] = 0
 g['pandoc#filetypes#handled'] = {'pandoc'}
 g['pandoc#modules#disabled'] = {"folding"}
--- for autocomplete, use *.bib library files and coc-bibtex
 
+-- custom fzf function to complete email addresses in notmuch
+map('n', '<leader>mm', '<cmd>lua require("tools").email_complete()<cr>')
 
+-- configure hop to work like vim-sneak
+-- vimwiki settings
+vim.g.vimwiki_list = {{path='~/vimwiki/', syntax='markdown', ext='.wiki'}}
+vim.g.vimwiki_global_ext = 0
+
+--catpuccino
+local catppuccino = require("catppuccino")
+catppuccino.setup({
+  colorscheme = "dark_catppuccino",
+  term_colors = true,
+  styles = {
+    comments="italic",
+    functions="NONE",
+    keywords="NONE",
+    strings="NONE",
+    variables="NONE",
+  },
+  integrations = {
+    hop = true,
+  }
+})
+vim.cmd[[colorscheme catppuccino]]
+
+--onedark
+--require('onedark').setup()
+
+--neoterm
+map('n', '<leader>tf', ':TREPLSendFile<cr>')
+map('n', '<leader>tl', ':TREPLSendLine<cr>')

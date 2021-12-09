@@ -35,8 +35,8 @@ export LS_COLORS="$(vivid generate molokai)$"
 # used for cross-platform copy/paste ( not needed with windows terminal )
 # export DISPLAY=:0
 
-# export EDITOR=/usr/bin/nvim
-export EDITOR=~/.local/bin/nv
+export EDITOR=/usr/bin/nvim
+#export EDITOR=~/.local/bin/nv
 export VISUAL=/usr/bin/nvim
 
 # make ls pretty
@@ -44,6 +44,7 @@ alias ls='ls --color=auto'
 # shortcut to yayfzf and pacfzf
 alias yf=yayfzf
 alias pf=pacfzf
+alias nv=nvim
 alias vi=nv
 alias gitu='git add . && git commit && git push'
 # pacbak to backup pacman installed packages
