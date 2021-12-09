@@ -17,6 +17,7 @@ return require('packer').startup(function()
 	use { 'wbthomason/packer.nvim', opt=True } -- package manager
 
 	--editor
+<<<<<<< HEAD
 	use {'junegunn/fzf.vim'} -- fuzzy search
   use {'ggandor/lightspeed.nvim'} -- alternative to hop, motions around screen
 	use {'windwp/nvim-autopairs'} -- parenthesis and brackets and such
@@ -40,6 +41,29 @@ return require('packer').startup(function()
   use {'kassio/neoterm'} -- send commands to neovim terminal in a new persistent buffer
 	use {'vimwiki/vimwiki'} -- handy diary and todo list keeping stuff
 	use {'tpope/vim-obsession'} -- saving and reloading sessions
+=======
+	use {'junegunn/fzf', run = ':fzf#install'}
+	use {'junegunn/fzf.vim'}
+	use {'justinmk/vim-sneak'}
+	use {'windwp/nvim-autopairs'}
+	use {'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+      require('lualine').setup{
+        options = {
+          theme = 'onedark',
+          icon_separators = true,
+        },
+        extensions = { 'fzf' }
+      }
+    end
+  }
+	use {'jremmen/vim-ripgrep'}
+	use {'stefandtw/quickfix-reflector.vim'}
+	use {'jpalardy/vim-slime'}
+	use {'vimwiki/vimwiki', branch='dev' }
+	use {'tpope/vim-obsession'}
+>>>>>>> 4459edfc2ce272ad3c30794635f922b0bbdf770d
 	use {'mhinz/neovim-remote'}
 	use {'ojroques/vim-oscyank'}
 --  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}

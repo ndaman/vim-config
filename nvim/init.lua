@@ -9,7 +9,10 @@ g.loaded_python_provider = 0
 
 -- plugins
 require ('plugins')
+<<<<<<< HEAD
 local cmp = require'cmp'
+=======
+>>>>>>> 4459edfc2ce272ad3c30794635f922b0bbdf770d
 
 -- ripgrep search command
 g.rg_command = 'rg --vimgrep -S'
@@ -37,6 +40,14 @@ g.vimtex_compiler_method = 'latexmk'
 -- g.vimtex_compiler_latexmk_engines = { _ = '-xelatex' }
 g.vimtex_quickfix_mode = 1
 g.tex_flavor = 'latex'
+
+-- vimwiki
+-- don't use vimwiki for .md files
+g.vimwiki_global_ext = 0
+
+-- markdown
+-- disable folding
+g.vim_markdown_folding_disabled = 1
 
 local scopes = {o = vim.o, b = vim.bo, w = vim.w}
 
