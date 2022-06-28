@@ -10,7 +10,7 @@ I wanted to centralize my vim config settings and any other installation instruc
     ```
     git config --global credential.helper '/mnt/c/Program Files/git/mingw64/libexec/git-core/git-credential-manager.exe'
     ```
-2. install arch from bootstrap per [these](https://www.reddit.com/r/bashonubuntuonwindows/comments/gxbufo/running_arch_on_wsl_from_the_source_images_the/) instructions
+2. install arch from bootstrap per [these](https://github.com/nckslvrmn/arch_linux_wsl2) instructions
 3. install (non AUR) packages in pkglist.txt with
 ```
 pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
