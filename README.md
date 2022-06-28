@@ -33,11 +33,11 @@ pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
     ```
     yay -S --needed - < pkglist.txt 
     ```
-6. setup zsh
+6. setup zsh **TODO** zsh configuration needs some work and a little bit more elaboration to get links working correctly
 ``` 
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 ```
-7. setup tmux
+7. setup tmux **TODO** I think it would be worthwhile to start using tmuxp
     1. clone tmux package manager
     ```
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
