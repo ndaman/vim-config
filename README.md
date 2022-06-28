@@ -23,7 +23,11 @@ pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
     ```
     EDITOR=nvim visudo
     ```
-    2. login to new user as default using method [here](https://github.com/microsoft/WSL/issues/3974)
+    2. if you have configured the default user (per instructions above in boostrap), then relogin by closing the window and typing in powershell
+    ```
+    wsl --terminate arch
+    ```
+    and then start Arch again, you should be logged in as the configured user
 5. install [yay](https://github.com/Jguer/yay)
     1. install foreign packages from list (may need to su to new user first)
     ```
