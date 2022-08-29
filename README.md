@@ -1,6 +1,6 @@
 # vim-config
 
-I wanted to centralize my vim config settings and any other installation instructions so that I can more easily keep things consistent. I will also keep track of things to improve to make the process easier.
+I wanted to centralize my vim config settings and any other installation instructions so that I can more easily keep things consistent. I will also keep track of things to improve to make the process easier. Right now I prefer using Windows Terminal with [Cascadia Code PL](https://github.com/microsoft/cascadia-code/releases?WT.mc_id=-blog-scottha)
 
 ## wsl setup
 1. Check windows 10 version, for >2004 we can set up wsl 2
@@ -33,10 +33,20 @@ pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
     ```
     yay -S --needed - < pkglist.txt 
     ```
-6. setup zsh **TODO** zsh configuration needs some work and a little bit more elaboration to get links working correctly
+6. setup zsh 
 ``` 
-echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+mkdir ~/.local/bin
+cp vim-config/zsh/pacfzf ~/.local/bin/
+cp vim-config/zsh/yayfzf ~/.local/bin/
 ```
+and edit ~/.zshrc so that it reads
+```
+source ~/vim-config/zsh/zshrc
+PATH="$PATH:$HOME/.local/bin
+```
+If you want pretty theming, first we need to install a "nerd font" that uses glyphs and make that the default font in Windows Terminal.
+After saving, run `source ~/.zshrc` in the terminal and then use yf to install powerlevel10k (zsh theme)
+By default it should run a powerlevel config script to be used to your heart's content
 7. setup tmux **TODO** I think it would be worthwhile to start using tmuxp
     1. clone tmux package manager
     ```
