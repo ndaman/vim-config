@@ -33,15 +33,15 @@ map( "n", "<leader>c", '<Plug>SnipRunOperator', default_options)
 map( "n", "<leader>cc", '<Plug>SnipRun', default_options)
 
 -- save
-map( "n", "<leader>w", ":w<cr>", default_options)
-map( "n", "<leader>q", ":q<cr>", default_options)
-map( "n", "<leader>f", ":%s/\\<<c-r><c-w>\\>//g<left><left>", default_options)
-map( "n", "<leader>k", ":m-2<cr>==", default_options)
-map( "n", "<leader>j", ":m+<cr>==", default_options)
+map( "n", "<leader>w", "<cmd>w<cr>", default_options)
+map( "n", "<leader>q", "<cmd>q<cr>", default_options)
+map( "n", "<leader>f", "<cmd>s/\\<<c-r><c-w>\\>//g<left><left>", default_options)
+map( "n", "<leader>k", "<cmd>m-2<cr>==", default_options)
+map( "n", "<leader>j", "<cmd>m+<cr>==", default_options)
 
 -- other
-map( "n", "<leader>n", ":noh<cr>", expr_options)
-map( "n", "<leader>cd", ":cd %:p:h<cr>", expr_options)
-map( "v", "<leader>y", ":OSCYank<cr>", expr_options)
+map( "n", "<leader>n", "<cmd>noh<cr>", default_options)
+map( "n", "<leader>cd", "<cmd>cd %:p:h<cr>", default_options)
+map( "v", "<leader>y", "<cmd>OSCYank<cr>", default_options)
 
 
