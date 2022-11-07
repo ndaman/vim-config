@@ -162,3 +162,4 @@ pair <MAC>
 trust <MAC>
 connect <MAC>
 ```
+just testing git
