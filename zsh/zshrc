@@ -63,6 +63,9 @@ bindkey '^[[Z' autosuggest-execute
 # open urls in firefox
 export BROWSER='/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
 
+# dotfiles status anywhere
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles'
+
 # fzf to kill processes
 fkill() {
     local pid 
