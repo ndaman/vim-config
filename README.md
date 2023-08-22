@@ -35,6 +35,10 @@ pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
     ```
 6. setup zsh 
 ``` 
+chsh -s /bin/zsh
+```
+Then exit and re-enter the terminal to be in zsh
+```
 mkdir ~/.local/bin
 cp vim-config/zsh/pacfzf ~/.local/bin/
 cp vim-config/zsh/yayfzf ~/.local/bin/
@@ -45,8 +49,16 @@ source ~/vim-config/zsh/zshrc
 PATH="$PATH:$HOME/.local/bin
 ```
 If you want pretty theming, first we need to install a "nerd font" that uses glyphs and make that the default font in Windows Terminal.
-After saving, run `source ~/.zshrc` in the terminal and then use yf to install powerlevel10k (zsh theme)
-By default it should run a powerlevel config script to be used to your heart's content
+After installing the nerd font, add the following line to ~/.zshrc
+```
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+```
+and reload your config (e.g. by typing `source ~/.zshrc` in the terminal)
+After that, type
+```
+p10k configure
+```
+to configure the zsh theme.
 7. setup tmux **TODO** I think it would be worthwhile to start using tmuxp
     1. clone tmux package manager
     ```
@@ -55,7 +67,24 @@ By default it should run a powerlevel config script to be used to your heart's c
     2. edit ~/.tmux.conf to source ~/vim-config/tmux/tmux.conf
     3. prefix + I to install plugins (C-b then I)
  
-## installation
+## neovim configuration
+
+1. I am now using LazyVim to help with my neovim configuration
+2. To start, clone the starter
+```
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+```
+and remove the .git folder
+```
+rm -rf ~/.config/nvim/.git
+```
+3. Then symlink the following folders:
+```
+ln -s ~/vim-config/lazyvim/config ~/.config/nvim/lua/
+ln -s ~/vim-config/lazyvim/plugins ~/.config/nvim/lua/
+```
+
+## installation (deprecated)
 1. Install python 3 (if needed, in windows I like to use conda, make sure Python 3 is default)
 2. Install git
 3. Install neovim (on windows use `choco install neovim`, which installs nvim-qt by default)
