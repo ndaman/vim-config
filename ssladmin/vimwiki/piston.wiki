@@ -1,6 +1,6 @@
 | Cannon     | Shaft length | Shaft diameter | Ring diameter |
 | ---        | ---          | ---            | ---           |
-| Ball       | 30.25        | 1.333          | 3.8           |
+| Niekro     | 30.25        | 1.333          | 3.8           |
 | Lyons      | 30.25        | 1.333          | 3.8           |
 | Wake       | 30.25        | 1.333          | 3.8           |
 | Durability | 32.125       | 1.333          | 3.8           |
