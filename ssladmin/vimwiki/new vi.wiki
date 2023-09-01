@@ -1,0 +1,4 @@
+* [ ] use durability-style speed/pressure calculator
+* [ ] show accepted shots on the chart (so you know how many good shots at each location)
+* [ ] can overwrite ball code from previous scan
+* [ ] Ball batch ID
