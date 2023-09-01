@@ -1,0 +1,68 @@
+Men's Polos
+---
+1 S
+9 M
+5 L
+1 XL
+
+Women's Polos
+---
+3 S
+3 L
+1 XL
+
+Men's Jackets
+---
+1 S
+8 M
+8 L
+1 XL
+
+Women's Jackets
+---
+1 S
+1 M
+3 L
+
+Checklist
+---
+* Pro shops (5x)
+  * 2 M
+  * 2 L
+  * 1 XL
+* Cody
+  * L/L
+* Kei
+  * M/L
+* Cal
+  * L/L
+* Yi
+  * L/L (W)
+* Miles
+  * M/M
+* Wesley
+  * L/L
+* Dad
+  * S (W) / L (M)
+* Bin
+  * M/M
+* Elizabeth
+  * S/M (W)
+* Praveen
+  * M/M
+* Kyle
+  * M/L
+* Tyler
+  * M/M
+* Devin
+  * S/S
+* Tana
+  * L/L (W)
+* Me
+  * M/M
+* Alexis
+  * S/S (W)
+* Ashley
+  * L/L (W)
+* Charlotte
+  * XL (W)/ L (M)

@@ -1,0 +1,52 @@
+| Cannon     | Shaft length | Shaft diameter | Ring diameter |
+| ---        | ---          | ---            | ---           |
+| Ball       | 30.25        | 1.333          | 3.8           |
+| Lyons      | 30.25        | 1.333          | 3.8           |
+| Wake       | 30.25        | 1.333          | 3.8           |
+| Durability | 32.125       | 1.333          | 3.8           |
+| Travel     | 28.75        | 1.0            | 2.87          |
+| Old Travel | 24.5         | 1.0            | 3.0           |
+| Aero       | 41.75        | 1.333          | 3.8           |
+| SML        | 33.25        | 1.00           | 3.25          |
+| G2         | 39.0         | 1.333          | 6.05         |
+
+| Item               | Quantity needed | Quantity on hand |
+| ---                | ---             | ---              |
+| 1.333 Shaft        | 205             | 600              |
+| 1.00 Shaft         | 120             | 144              |
+| 3.8 Ring           | 5               | 4                |
+| 2.87 Ring          | 2               | 2                |
+| 3.0 Ring           | 1               | 1                |
+| 3.25 Ring          | 1               | 0                |
+| G2 Ring            | 1               | 0                |
+| 1.33 small washer  | 30              | 40               |
+| 1.33 big washer    | 5               | 9                |
+| 1.00 small washer  | ?               | 9                |
+| 1.00 big washer    | ?               | 0                |
+
+
+How many washers per piston?
+  6 small, 1 big (for ball/lyons/wakefield)
+  
+Pistons to build:
+2x Lyons/Wakefield/Ball 
+1x Durability
+1x Aero
+1x Travel
+
+Future builds:
+? Old Travel ?
+? SML ?
+? G2 ?
+
+Future supplies
+* 1.00 Shaft
+* 8x 3.8 rings
+* 5x 2.87 rings 
+* 2x 3.0 rings
+* 2x 3.25 rings
+* 2x G2 rings
+* 50x small washers (find all sizes needed)
+* 10x big washers (find all sizes needed)
+* 1.33 metal tips
+* 1.00 metal tips

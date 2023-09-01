@@ -1,0 +1,69 @@
+# Todo list:
+* [o] [piston](piston)
+  * [X] piston inventory
+  * [X] build new pistons on 1/31
+  * [ ] order supplies for other cannons
+  * [ ] redesign pistons
+* [ ] [database](database)
+  * [ ] test federation features
+  * [ ] re-test all bugs on Monday
+  * [ ] try uploading the wrong type of ball data (uball for cball, etc) Does it work? what happens to lot correction?
+  * [ ] 209
+  * [ ] 230
+  * [ ] 214
+  * [ ] 158
+  * [ ] 193
+  * [ ] 194
+  * [ ] 224
+  * [ ] 222
+  * [ ] 109
+* [O] [Staff](Staff) performance reviews (complete by 3/10)
+  * [ ] Review evaluation worksheet
+  * [ ] Tyler
+* [o] ground truth invoices
+  * [ ] review invoices for accuracy
+  * [ ] copy to vault
+  * [X] talk to Kyle about invoicing
+  * [X] talk to Klay about timing of invoices
+* [ ] account payments in WSU system
+  * [ ] talk to Ian and Gordon about switching from myWSU to WorkDay
+  * [ ] What auditing would be involved if we took payments directly?
+  * [ ] Do we have any incentive to take payments directly?
+  * [ ] Talk to Elizabeth about MLB and NCAA accounts
+    * [ ] Can we stop them getting overdue account notices?
+    * [ ] Does she know about switching to WorkDay or taking direct payments?
+* [ ] Fix image size in softball bat out template
+* [ ] Fix isolation error in all templates
+  * [ ] Does not throw an error when we miss a location needed for isolation
+* [ ] Update best practices with edits we have discussed in staff meetings 
+* [ ] Future machine shop jobs
+  * [ ] water jet composite washers
+  * [ ] new metal tips?
+* [ ] (long term idea) replace LABview with Python
+* [ ] mount TV in conference room
+* [ ] display cool stuff in conference room
+* [ ] get employee dashboard running
+* [X] discuss new/backup encoder
+* [X] discuss FP DS limits
+* [o] tighter bushings for performance cannons
+  * [X] place order
+  * [ ] test new pieces
+* [ ] clean/sort e-mail
+* [.] x-ray non-linear bats
+  * [X] ask miles if BC was taken before we ran our compression routine
+  * [ ] ask mfg's about internals of these non-linear bats
+  * [ ] might need to buy these again and be more careful
+* [ ] Talk to Eric about flex tips (and bushings)
+  * [ ] redesign to not need foam
+  * [ ] might also make them with variable stiffness
+* [o] Universal VI
+  * [X] SP header shift (check data format)
+  * [X] Hit #'s as INT (not float)
+  * [ ] Ball Batch ID
+* [ ] Start working on reaction time paper (Derek's work?)
+  * [ ] find derek's old work
+  * [ ] write outline
+  * [ ] send draft to dad
+* [ ] Photo date 4/27?
+* [ ] Composites paper
+* [ ] A2LA renewal

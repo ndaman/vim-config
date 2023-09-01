@@ -1,0 +1,9 @@
+database user accounts    password
+ndaman+client@gmail.com   password
+ndaman+bbs@gmail.com      NickBat1!
+ndaman+bbcor@gmail.com    NickBat1!
+ndaman+usabat@gmail.com   NickBat1!
+ndaman+rawlings@gmail.com   NickBat1!
+ndaman+admin@gmail.com   NickBat1!
+ndaman+louisville@gmail.com   NickBat1!
+
