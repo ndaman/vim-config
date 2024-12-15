@@ -34,7 +34,6 @@ sudo
 vivid
 wget
 which
-yay-bin
 zsh
 zsh-autosuggestions
 zsh-theme-powerlevel10k-git
